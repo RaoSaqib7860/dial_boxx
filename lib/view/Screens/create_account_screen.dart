@@ -61,16 +61,16 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         fit: BoxFit.cover,
                       )),
                   SizedBox(
-                    height: 100.h,
+                    height: 80.h,
                   ),
                   CustomText(
                     text: 'Start 7 days Free Trial',
-                    size: 22.sp,
+                    size: 24.sp,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
                   SizedBox(
-                    height: 60.h,
+                    height: 45.h,
                   ),
                   Container(
                     height: 46.h,
@@ -85,7 +85,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           onTap: () {
                             setState(() {
                               index = 0;
-                              print('check index zero $index');
                             });
                           },
                           child: Container(
@@ -112,12 +111,11 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           onTap: () {
                             setState(() {
                               index = 1;
-                              print('check index one $index');
                             });
                           },
                           child: Container(
                             height: 46.h,
-                            width: 110.w,
+                            width: 100.w,
                             decoration: BoxDecoration(
                                 color: index == 0
                                     ? Colors.white
@@ -139,7 +137,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 20.h,
+                    height: 25.h,
                   ),
                   index == 0
                       ? Padding(
@@ -219,7 +217,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 110.h,
+                    height: 30.h,
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),

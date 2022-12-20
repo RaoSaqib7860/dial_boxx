@@ -18,11 +18,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.push(
+     /* Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => const CreateAccountScreen(),
-          ));
+          ));*/
     });
     super.initState();
   }
@@ -34,18 +34,18 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           children: [
             SizedBox(
-              height: 270.h,
+              height: 220.h,
             ),
             CustomText(
               text: 'WELCOME TO',
-              size: 32.sp,
+              size: 40.sp,
             ),
             SizedBox(
               height: 40.0.h,
             ),
             SizedBox(
                 height: 90.h,
-                width: 230.w,
+                // width: 210.w,
                 child: Image.asset(
                   'assets/images/logoDialboxx.png',
                   fit: BoxFit.cover,
@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             CustomText(
               text: "Seller's Portal",
-              size: 23.sp,
+              size: 28.sp,
               fontWeight: FontWeight.bold,
               color: AppColors.blackColor,
             )

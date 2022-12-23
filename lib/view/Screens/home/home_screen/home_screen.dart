@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
       key: _scaffoldKey,
       appBar: CustomAppBar(
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.menu,
             color: AppColors.primaryColor,
           ),
@@ -834,13 +834,15 @@ class _HomeScreenState extends State<HomeScreen> {
 //....................Home Screen..........................//
   Widget homeScreenWidget() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Stack(
           children: [
             Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
-                  height: 150.h,
+                  height: 120.h,
                   width: MediaQuery.of(context).size.width,
                   color: status
                       ? AppColors.primaryColor
@@ -889,10 +891,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 90.h),
+              padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 70.h),
               child: Container(
                 height: 210.h,
-                width: MediaQuery.of(context).size.width,
+                // width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     color: AppColors.whitColor,
                     borderRadius: BorderRadius.circular(10.sp),
@@ -952,6 +954,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Container(
                             height: 35.h,
                             width: 80.w,
+
                             decoration: BoxDecoration(
                                 color: AppColors.greenColor,
                                 borderRadius: BorderRadius.circular(10.sp)),
@@ -978,7 +981,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       SizedBox(
-                        height: 12.h,
+                        height: 20.h,
                       ),
                       GestureDetector(
                         onTap: () {
@@ -1030,7 +1033,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: EdgeInsets.symmetric(horizontal: 15.w),
           child: Container(
             height: 126.h,
-            width: MediaQuery.of(context).size.width,
+            // width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 color: AppColors.whitColor,
                 borderRadius: BorderRadius.circular(6.sp),
@@ -1046,17 +1049,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Container(
                       height: 126.h,
-                      width: 120.w,
+                      width:MediaQuery.of(context).size.width*0.31,
                       color: Colors.blue,
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 4.w, vertical: 5),
                           child: Container(
                             height: 50.h,
-                            width: 215.w,
+                            // width: 215.w,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -1084,12 +1089,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Container(
-                          width: 205.w,
-                          height: 58.h,
+                          width: MediaQuery.of(context).size.width*0.6,
+                          // height: 58.h,
                           child: CustomText(
                             text:
                                 "Learn how you can setup your website & profile with Dialboxx with ZERO coding skills",
                             color: Colors.black54,
+                            maxline: 4,
                             size: 12.sp,
                           ),
                         ),
@@ -1126,6 +1132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     size: 13.sp,
                   ),
                   PopupMenuButton(
+                    position: PopupMenuPosition.under,
                       icon: Icon(
                         Icons.keyboard_arrow_down_sharp,
                       ),
@@ -1190,122 +1197,128 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              GestureDetector(
-                onTap: () {
-                  Get.to(() => AnalyticsScreen(
-                        tabIndex: 0,
-                      ));
-                },
-                child: Container(
-                  //  height: 180.h,
-                  width: 160.w,
-                  decoration: BoxDecoration(
-                      color: AppColors.whitColor,
-                      borderRadius: BorderRadius.circular(5.sp),
-                      boxShadow: [
-                        BoxShadow(
-                            blurRadius: 2,
-                            spreadRadius: 2,
-                            color: Colors.black.withOpacity(0.10))
-                      ]),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    Get.to(() => AnalyticsScreen(
+                          tabIndex: 0,
+                        ));
+                  },
+                  child: Container(
+                    //  height: 180.h,
+                    // width: 160.w,
+                    decoration: BoxDecoration(
+                        color: AppColors.whitColor,
+                        borderRadius: BorderRadius.circular(5.sp),
+                        boxShadow: [
+                          BoxShadow(
+                              blurRadius: 2,
+                              spreadRadius: 2,
+                              color: Colors.black.withOpacity(0.10))
+                        ]),
 
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 10.w, vertical: 10.h),
-                        child: Row(
-                          children: [
-                            CustomText(
-                              text: "Total Sales",
-                              fontWeight: FontWeight.w500,
-                              size: 15.sp,
-                            )
-                          ],
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.w, vertical: 10.h),
+                          child: Row(
+                            children: [
+                              CustomText(
+                                text: "Total Sales",
+                                fontWeight: FontWeight.w500,
+                                size: 15.sp,
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        height: 130.h,
-                        child: SfCartesianChart(
-                            primaryXAxis: CategoryAxis(),
-                            // Chart title
-                            // title: ChartTitle(text: 'Half yearly sales analysis'),
-                            // Enable legend
-                            legend: Legend(
-                              isVisible: true,
-                            ),
+                        Container(
+                          height: 130.h,
+                          child: SfCartesianChart(
+                              primaryXAxis: CategoryAxis(),
+                              // Chart title
+                              // title: ChartTitle(text: 'Half yearly sales analysis'),
+                              // Enable legend
+                              legend: Legend(
+                                isVisible: false,
+                              ),
 
-                            // Enable tooltip
-                            tooltipBehavior: TooltipBehavior(enable: true),
-                            series: <ChartSeries<_SalesData, String>>[
-                              LineSeries<_SalesData, String>(
-                                  dataSource: data,
-                                  xValueMapper: (_SalesData sales, _) =>
-                                      sales.year,
-                                  yValueMapper: (_SalesData sales, _) =>
-                                      sales.sales,
-                                  name: '',
+                              // Enable tooltip
+                              tooltipBehavior: TooltipBehavior(enable: true),
+                              series: <ChartSeries<_SalesData, String>>[
+                                ColumnSeries<_SalesData, String>(
+                                    dataSource: data,
+                                    xValueMapper: (_SalesData sales, _) =>
+                                        sales.year,
+                                    yValueMapper: (_SalesData sales, _) =>
+                                        sales.sales,
+                                    name: '',
 
-                                  // Enable data label
-                                  dataLabelSettings: DataLabelSettings(
-                                    isVisible: true,
-                                  ))
-                            ]),
-                      ),
-                    ],
+                                    // Enable data label
+                                    dataLabelSettings: DataLabelSettings(
+                                      isVisible: true,
+                                    ))
+                              ]),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Get.to(() => AnalyticsScreen(
-                        tabIndex: 0,
-                      ));
-                },
-                child: Container(
-                  // height: 180.h,
-                  width: 160.w,
-                  decoration: BoxDecoration(
-                      color: AppColors.whitColor,
-                      borderRadius: BorderRadius.circular(5.sp),
-                      boxShadow: [
-                        BoxShadow(
-                            blurRadius: 2,
-                            spreadRadius: 2,
-                            color: Colors.black.withOpacity(0.10))
-                      ]),
+              SizedBox(width: 20,),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    Get.to(() => AnalyticsScreen(
+                          tabIndex: 0,
+                        ));
+                  },
+                  child: Container(
+                    // height: 180.h,
+                    // width: 160.w,
 
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 10.w, vertical: 10.h),
-                        child: Row(
-                          children: [
-                            CustomText(
-                              text: "Total Products",
-                              fontWeight: FontWeight.w500,
-                              size: 15.sp,
-                            )
-                          ],
+                    decoration: BoxDecoration(
+                        color: AppColors.whitColor,
+                        borderRadius: BorderRadius.circular(5.sp),
+                        boxShadow: [
+                          BoxShadow(
+                              blurRadius: 2,
+                              spreadRadius: 2,
+                              color: Colors.black.withOpacity(0.10))
+                        ]),
+
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.w, vertical: 10.h),
+                          child: Row(
+                            children: [
+                              CustomText(
+                                text: "Total Products",
+                                fontWeight: FontWeight.w500,
+                                size: 15.sp,
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                          height: 130.h,
-                          child: SfCircularChart(
-                              margin: EdgeInsets.zero,
-                              series: <CircularSeries>[
-                                // Renders doughnut chart
-                                DoughnutSeries<ChartData, String>(
-                                    dataSource: chartData,
-                                    pointColorMapper: (ChartData data, _) =>
-                                        data.color,
-                                    radius: '50',
-                                    innerRadius: '38',
-                                    xValueMapper: (ChartData data, _) => data.x,
-                                    yValueMapper: (ChartData data, _) => data.y)
-                              ]))
-                    ],
+                        Container(
+                            height: 130.h,
+                            child: SfCircularChart(
+                                margin: EdgeInsets.zero,
+                                series: <CircularSeries>[
+                                  // Renders doughnut chart
+                                  DoughnutSeries<ChartData, String>(
+                                      dataSource: chartData,
+                                      pointColorMapper: (ChartData data, _) =>
+                                          data.color,
+                                      radius: '50',
+                                      innerRadius: '38',
+                                      xValueMapper: (ChartData data, _) => data.x,
+                                      yValueMapper: (ChartData data, _) => data.y)
+                                ]))
+                      ],
+                    ),
                   ),
                 ),
               )
@@ -1322,88 +1335,94 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              GestureDetector(
-                onTap: () {
-                  Get.to(() => AnalyticsScreen(
-                        tabIndex: 1,
-                      ));
-                },
-                child: Container(
-                  height: 70.h,
-                  width: 160.w,
-                  decoration: BoxDecoration(
-                    color: AppColors.whitColor,
-                    boxShadow: [
-                      BoxShadow(
-                          blurRadius: 2,
-                          spreadRadius: 1,
-                          color: Colors.black.withOpacity(0.10))
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomText(
-                          text: "Store View",
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          size: 14.sp,
-                        ),
-                        SizedBox(
-                          height: 5.h,
-                        ),
-                        CustomText(
-                          text: "23",
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                          size: 12.sp,
-                        ),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    Get.to(() => AnalyticsScreen(
+                          tabIndex: 1,
+                        ));
+                  },
+                  child: Container(
+                    height: 70.h,
+                    // width: 160.w,
+                    decoration: BoxDecoration(
+                      color: AppColors.whitColor,
+                      boxShadow: [
+                        BoxShadow(
+                            blurRadius: 2,
+                            spreadRadius: 1,
+                            color: Colors.black.withOpacity(0.10))
                       ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomText(
+                            text: "Store View",
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            size: 14.sp,
+                          ),
+                          SizedBox(
+                            height: 5.h,
+                          ),
+                          CustomText(
+                            text: "23",
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                            size: 12.sp,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Get.to(() => AnalyticsScreen(
-                        tabIndex: 2,
-                      ));
-                },
-                child: Container(
-                  height: 70.h,
-                  width: 160.w,
-                  decoration: BoxDecoration(
-                    color: AppColors.whitColor,
-                    boxShadow: [
-                      BoxShadow(
-                          blurRadius: 2,
-                          spreadRadius: 1,
-                          color: Colors.black.withOpacity(0.10))
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomText(
-                          text: "Product View",
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          size: 14.sp,
-                        ),
-                        SizedBox(
-                          height: 5.h,
-                        ),
-                        CustomText(
-                          text: "15",
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                          size: 12.sp,
-                        ),
+              SizedBox(width: 20,),
+
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    Get.to(() => AnalyticsScreen(
+                          tabIndex: 2,
+                        ));
+                  },
+                  child: Container(
+                    height: 70.h,
+                    width: 160.w,
+                    decoration: BoxDecoration(
+                      color: AppColors.whitColor,
+                      boxShadow: [
+                        BoxShadow(
+                            blurRadius: 2,
+                            spreadRadius: 1,
+                            color: Colors.black.withOpacity(0.10))
                       ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomText(
+                            text: "Product View",
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            size: 14.sp,
+                          ),
+                          SizedBox(
+                            height: 5.h,
+                          ),
+                          CustomText(
+                            text: "15",
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                            size: 12.sp,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -1436,108 +1455,114 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              GestureDetector(
-                onTap: () {
-                  Get.to(() => BottomSheetCustom(
-                        index: 1,
-                      ));
-                },
-                child: Container(
-                  height: 65.h,
-                  width: 160.w,
-                  decoration: BoxDecoration(
-                      color: AppColors.whitColor,
-                      borderRadius: BorderRadius.circular(5.sp),
-                      boxShadow: [
-                        BoxShadow(
-                            blurRadius: 2,
-                            spreadRadius: 2,
-                            color: Colors.black.withOpacity(0.10))
-                      ]),
-                  child: Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 3.h),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image.asset(
-                              'assets/images/delivery.png',
-                              height: 20.h,
-                              width: 20.w,
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Icon(
-                              Icons.arrow_forward_ios_outlined,
-                              size: 15.sp,
-                            )
-                          ],
-                        ),
-                        CustomText(
-                          text: "1 pending order",
-                          size: 14.sp,
-                          color: Colors.black54,
-                        )
-                      ],
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    Get.to(() => BottomSheetCustom(
+                          index: 1,
+                        ));
+                  },
+                  child: Container(
+                    height: 65.h,
+                    // width: 160.w,
+                    decoration: BoxDecoration(
+                        color: AppColors.whitColor,
+                        borderRadius: BorderRadius.circular(5.sp),
+                        boxShadow: [
+                          BoxShadow(
+                              blurRadius: 2,
+                              spreadRadius: 2,
+                              color: Colors.black.withOpacity(0.10))
+                        ]),
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10.w, vertical: 3.h),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image.asset(
+                                'assets/images/delivery.png',
+                                height: 20.h,
+                                width: 20.w,
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Icon(
+                                Icons.arrow_forward_ios_outlined,
+                                size: 15.sp,
+                              )
+                            ],
+                          ),
+                          CustomText(
+                            text: "1 pending order",
+                            size: 14.sp,
+                            color: Colors.black54,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Get.to(() => BottomSheetCustom(
-                        index: 3,
-                      ));
-                },
-                child: Container(
-                  height: 65.h,
-                  width: 160.w,
-                  decoration: BoxDecoration(
-                      color: AppColors.whitColor,
-                      borderRadius: BorderRadius.circular(5.sp),
-                      boxShadow: [
-                        BoxShadow(
-                            blurRadius: 2,
-                            spreadRadius: 2,
-                            color: Colors.black.withOpacity(0.10))
-                      ]),
-                  child: Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.h),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image.asset(
-                              'assets/images/delivery.png',
-                              height: 20.h,
-                              width: 20.w,
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Icon(
-                              Icons.arrow_forward_ios_outlined,
-                              size: 15.sp,
-                            )
-                          ],
-                        ),
-                        CustomText(
-                          text: "3 Order to ship",
-                          size: 14.sp,
-                          color: Colors.black54,
-                        )
-                      ],
+              SizedBox(width: 20,),
+
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    Get.to(() => BottomSheetCustom(
+                          index: 1,
+                        ));
+                  },
+                  child: Container(
+                    height: 65.h,
+                    // width: 160.w,
+                    decoration: BoxDecoration(
+                        color: AppColors.whitColor,
+                        borderRadius: BorderRadius.circular(5.sp),
+                        boxShadow: [
+                          BoxShadow(
+                              blurRadius: 2,
+                              spreadRadius: 2,
+                              color: Colors.black.withOpacity(0.10))
+                        ]),
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.h),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image.asset(
+                                'assets/images/delivery.png',
+                                height: 20.h,
+                                width: 20.w,
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Icon(
+                                Icons.arrow_forward_ios_outlined,
+                                size: 15.sp,
+                              )
+                            ],
+                          ),
+                          CustomText(
+                            text: "3 Order to ship",
+                            size: 14.sp,
+                            color: Colors.black54,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -1575,6 +1600,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Stack(
       children: [
         Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
               height: 260.h,
@@ -1653,7 +1679,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Padding(
           padding: EdgeInsets.only(left: 20.w, right: 20, top: 170),
           child: Container(
-            height: 420.h,
+            // height: 420.h,
             decoration: BoxDecoration(
                 color: AppColors.whitColor,
                 borderRadius: BorderRadius.circular(10.sp),
@@ -1763,15 +1789,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         size: 14.sp,
                       ),
                     ),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomText(
-                          text:
-                              "Select how your customer will make payment for a purchase",
-                          size: 13.sp,
-                        ),
-                      ],
+                    subtitle: Padding(
+                      padding: const EdgeInsets.only(bottom:12.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomText(
+                            text:
+                                "Select how your customer will make payment for a purchase",
+                            size: 13.sp,
+                          ),
+                        ],
+                      ),
                     ),
                     content: SizedBox(),
                   ),

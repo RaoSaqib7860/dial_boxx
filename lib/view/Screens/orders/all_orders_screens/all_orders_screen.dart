@@ -53,6 +53,7 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             HeaderContainer(
               text: 'All Orders',

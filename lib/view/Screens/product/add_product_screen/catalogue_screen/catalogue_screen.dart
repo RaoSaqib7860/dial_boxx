@@ -46,49 +46,51 @@ class _CatalogueScreenState extends State<CatalogueScreen>
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              color: AppColors.primaryColor,
-              child: Column(
-                children: [
-                  Container(
-                    height: 30.h,
-                    child: Center(
-                      child: CustomText(
-                        text: "Catalogue",
-                        size: 16.sp,
-                        color: AppColors.whitColor,
-                        fontWeight: FontWeight.w500,
-                      ),
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            color: AppColors.primaryColor,
+            child: Column(
+              children: [
+                Container(
+                  height: 30.h,
+                  child: Center(
+                    child: CustomText(
+                      text: "Catalogue",
+                      size: 16.sp,
+                      color: AppColors.whitColor,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                  TabBar(
-                    controller: _tabController,
-                    indicatorColor: Colors.white,
-                    tabs: <Widget>[
-                      CustomText(
-                        text: "Products",
-                        size: 15.sp,
-                      ),
-                      CustomText(
-                        text: "Categories",
-                        size: 15.sp,
-                      ),
-                    ],
-                    indicatorSize: TabBarIndicatorSize.tab,
-                  ),
-                ],
-              ),
+                ),
+                TabBar(
+                  controller: _tabController,
+                  indicatorColor: Colors.white,
+                  tabs: <Widget>[
+                    CustomText(
+                      text: "Products",
+                      size: 15.sp,
+                    ),
+                    CustomText(
+                      text: "Categories",
+                      size: 15.sp,
+                    ),
+                  ],
+                  indicatorSize: TabBarIndicatorSize.tab,
+                ),
+              ],
             ),
-            Container(
-              height: MediaQuery.of(context).size.height,
-              child: TabBarView(
-                controller: _tabController,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.w),
+          ),
+          Flexible(
+            fit: FlexFit.loose,
+            child: TabBarView(
+              controller: _tabController,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
+                    child: SingleChildScrollView(
                     child: Column(
                       children: [
                         SizedBox(
@@ -132,8 +134,9 @@ class _CatalogueScreenState extends State<CatalogueScreen>
                             return Padding(
                               padding: EdgeInsets.only(top: 15.h),
                               child: Container(
-                                height: 180.h,
-                                width: MediaQuery.of(context).size.width,
+                                // height: 180.h,
+                                padding: EdgeInsets.only(bottom: 12.h),
+                                // width: MediaQuery.of(context).size.width,
                                 decoration: BoxDecoration(
                                   color: AppColors.whitColor,
                                   borderRadius: BorderRadius.circular(4.sp),
@@ -361,11 +364,12 @@ class _CatalogueScreenState extends State<CatalogueScreen>
                           },
                         ),
                         SizedBox(
-                          height: 40.h,
+                          height: 20.h,
                         ),
                         CustomButtonClick(
                           height: 45.h,
-                          width: MediaQuery.of(context).size.width,
+                          margins: EdgeInsets.symmetric(horizontal: 24.h),
+                          // width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                               color: AppColors.primaryColor,
                               borderRadius: BorderRadius.circular(6.sp)),
@@ -376,13 +380,19 @@ class _CatalogueScreenState extends State<CatalogueScreen>
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                        )
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+
                       ],
                     ),
                   ),
-                  //.............Categories Tab..........................//
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.w),
+                ),
+                //.............Categories Tab..........................//
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
+                  child: SingleChildScrollView(
                     child: Column(
                       children: [
                         SizedBox(
@@ -426,8 +436,9 @@ class _CatalogueScreenState extends State<CatalogueScreen>
                             return Padding(
                               padding: EdgeInsets.only(top: 15.h),
                               child: Container(
-                                height: 160.h,
-                                width: MediaQuery.of(context).size.width,
+                                // height: 160.h,
+                                padding: EdgeInsets.only(bottom: 12.h),
+                                // width: MediaQuery.of(context).size.width,
                                 decoration: BoxDecoration(
                                   color: AppColors.whitColor,
                                   borderRadius: BorderRadius.circular(4.sp),
@@ -630,11 +641,12 @@ class _CatalogueScreenState extends State<CatalogueScreen>
                           },
                         ),
                         SizedBox(
-                          height: 40.h,
+                          height: 20.h,
                         ),
                         CustomButtonClick(
                           height: 45.h,
-                          width: MediaQuery.of(context).size.width,
+                          // width: MediaQuery.of(context).size.width,
+                          margins: EdgeInsets.symmetric(horizontal: 24.h),
                           decoration: BoxDecoration(
                               color: AppColors.primaryColor,
                               borderRadius: BorderRadius.circular(6.sp)),
@@ -645,15 +657,18 @@ class _CatalogueScreenState extends State<CatalogueScreen>
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                        )
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
                       ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

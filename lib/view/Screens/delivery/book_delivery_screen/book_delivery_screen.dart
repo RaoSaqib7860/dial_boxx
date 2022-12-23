@@ -85,18 +85,19 @@ class _BookDeliveryScreenState extends State<BookDeliveryScreen>
                   TabBar(
                     controller: _tabController,
                     indicatorColor: Colors.white,
+                    labelPadding: EdgeInsets.zero,
                     tabs: <Widget>[
                       CustomText(
                         text: "Delivery Orders",
-                        size: 14.sp,
+                        size: 16.sp,
                       ),
                       CustomText(
                         text: "Pickup Location",
-                        size: 14.sp,
+                        size: 16.sp,
                       ),
                       CustomText(
                         text: "FAQs",
-                        size: 14.sp,
+                        size: 16.sp,
                       ),
                     ],
                     indicatorSize: TabBarIndicatorSize.tab,
@@ -199,195 +200,190 @@ class _BookDeliveryScreenState extends State<BookDeliveryScreen>
                         SizedBox(
                           height: 10.h,
                         ),
-                        Container(
-                          // height: 320.h,
-                          child: ListView.builder(
-                            itemCount: 3,
-                            physics: NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 0.w, vertical: 10.h),
-                                child: Container(
-                                  height: 150.h,
-                                  width: MediaQuery.of(context).size.width,
-                                  decoration: BoxDecoration(
-                                      color: AppColors.whitColor,
-                                      borderRadius: BorderRadius.circular(5.sp),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            blurRadius: 2,
-                                            spreadRadius: 1,
-                                            color:
-                                                Colors.black.withOpacity(0.20))
-                                      ]),
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        left: 10.w, right: 10.w, top: 10.h),
-                                    child: Column(
+                        ListView.builder(
+                          itemCount: 3,
+                          physics: NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              // height: 150.h,
+                              padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 10.h),
+                              margin: EdgeInsets.symmetric(horizontal: 0.w, vertical: 10.h),
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                  color: AppColors.whitColor,
+                                  borderRadius: BorderRadius.circular(5.sp),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        blurRadius: 2,
+                                        spreadRadius: 1,
+                                        color:
+                                            Colors.black.withOpacity(0.20))
+                                  ]),
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    left: 10.w, right: 10.w, top: 10.h),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            CustomText(
-                                              text: "Order #31245",
-                                              size: 15.sp,
-                                              color: AppColors.blackColor,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                            CustomText(
-                                              text: "Today, 4:18pm",
-                                              size: 12.sp,
-                                              color: AppColors.blackColor,
-                                            )
-                                          ],
+                                        CustomText(
+                                          text: "Order #31245",
+                                          size: 15.sp,
+                                          color: AppColors.blackColor,
+                                          fontWeight: FontWeight.w500,
                                         ),
-                                        SizedBox(
-                                          height: 10.h,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Container(
-                                              height: 54.h,
-                                              width: 220.w,
-                                              child: Row(
+                                        CustomText(
+                                          text: "Today, 4:18pm",
+                                          size: 12.sp,
+                                          color: AppColors.blackColor,
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 10.h,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          height: 54.h,
+                                          width: 220.w,
+                                          child: Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                height: 48.h,
+                                                width: 48.w,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius
+                                                            .circular(4.sp),
+                                                    border: Border.all(
+                                                        color: Color(
+                                                            0xff707070))),
+                                                child: Center(
+                                                  child: SvgPicture.asset(
+                                                    'assets/svg/product_imag.svg',
+                                                    height: 18.h,
+                                                    width: 24.w,
+                                                  ),
+                                                ),
+                                                // color: AppColors.primaryColor,
+                                              ),
+                                              SizedBox(
+                                                width: 10.w,
+                                              ),
+                                              Column(
                                                 crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                    CrossAxisAlignment
+                                                        .start,
                                                 children: [
-                                                  Container(
-                                                    height: 48.h,
-                                                    width: 48.w,
-                                                    decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(4.sp),
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xff707070))),
-                                                    child: Center(
-                                                      child: SvgPicture.asset(
-                                                        'assets/svg/product_imag.svg',
-                                                        height: 18.h,
-                                                        width: 24.w,
-                                                      ),
-                                                    ),
-                                                    // color: AppColors.primaryColor,
+                                                  CustomText(
+                                                    text: "1 Item",
+                                                    color:
+                                                        Color(0xff3E3E3E),
+                                                    size: 14.sp,
+                                                    fontWeight:
+                                                        FontWeight.w600,
                                                   ),
                                                   SizedBox(
-                                                    width: 10.w,
+                                                    height: 2.h,
                                                   ),
-                                                  Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      CustomText(
-                                                        text: "1 Item",
-                                                        color:
-                                                            Color(0xff3E3E3E),
-                                                        size: 14.sp,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                      SizedBox(
-                                                        height: 2.h,
-                                                      ),
-                                                      CustomText(
-                                                        text: "RS.200",
-                                                        color: AppColors
-                                                            .primaryColor,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        size: 15.sp,
-                                                      ),
-                                                    ],
+                                                  CustomText(
+                                                    text: "RS.200",
+                                                    color: AppColors
+                                                        .primaryColor,
+                                                    fontWeight:
+                                                        FontWeight.w600,
+                                                    size: 15.sp,
                                                   ),
                                                 ],
                                               ),
+                                            ],
+                                          ),
+                                        ),
+                                        CustomButtonClick(
+                                          height: 22.h,
+                                          width: 50.w,
+                                          decoration: BoxDecoration(
+                                            color: AppColors.lighOrangColor,
+                                          ),
+                                          child: Center(
+                                            child: CustomText(
+                                              text: "Paid",
+                                              color:
+                                                  AppColors.secondaryColor,
+                                              size: 13.sp,
+                                              fontWeight: FontWeight.w600,
                                             ),
-                                            CustomButtonClick(
-                                              height: 22.h,
-                                              width: 50.w,
-                                              decoration: BoxDecoration(
-                                                color: AppColors.lighOrangColor,
-                                              ),
-                                              child: Center(
-                                                child: CustomText(
-                                                  text: "Paid",
-                                                  color:
-                                                      AppColors.secondaryColor,
-                                                  size: 13.sp,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                        Divider(
-                                          thickness: 1.5,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            CustomText(
-                                              text: "Pending",
-                                              size: 15.sp,
-                                              color: AppColors.blackColor,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                            Container(
-                                              height: 20.h,
-                                              width: 70.w,
-                                              decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                      color: Colors.black38),
-                                                  color: AppColors.whitColor,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          4.sp),
-                                                  boxShadow: [
-                                                    BoxShadow(
-                                                        blurRadius: 2,
-                                                        spreadRadius: 1,
-                                                        color: Colors.black12
-                                                            .withOpacity(0.10))
-                                                  ]),
-                                              child: Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 4.w),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    CustomText(
-                                                      text: "Details",
-                                                      size: 12.sp,
-                                                    ),
-                                                    Icon(
-                                                      Icons
-                                                          .arrow_forward_ios_outlined,
-                                                      size: 12.sp,
-                                                    )
-                                                  ],
-                                                ),
-                                              ),
-                                            )
-                                          ],
-                                        ),
+                                          ),
+                                        )
                                       ],
                                     ),
-                                  ),
+                                    Divider(
+                                      thickness: 1.5,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        CustomText(
+                                          text: "Pending",
+                                          size: 15.sp,
+                                          color: AppColors.blackColor,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                        Container(
+                                          height: 20.h,
+                                          width: 70.w,
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: Colors.black38),
+                                              color: AppColors.whitColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      4.sp),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                    blurRadius: 2,
+                                                    spreadRadius: 1,
+                                                    color: Colors.black12
+                                                        .withOpacity(0.10))
+                                              ]),
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 4.w),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                CustomText(
+                                                  text: "Details",
+                                                  size: 12.sp,
+                                                ),
+                                                Icon(
+                                                  Icons
+                                                      .arrow_forward_ios_outlined,
+                                                  size: 12.sp,
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                              );
-                            },
-                          ),
+                              ),
+                            );
+                          },
                         ),
                         SizedBox(
                           height: 30.h,
@@ -420,6 +416,7 @@ class _BookDeliveryScreenState extends State<BookDeliveryScreen>
 //.................................Pickup Location Tab.....................................//
 
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
                         padding: EdgeInsets.only(
@@ -442,190 +439,178 @@ class _BookDeliveryScreenState extends State<BookDeliveryScreen>
                           ),
                           child: Padding(
                             padding: EdgeInsets.only(
-                                left: 20.w, right: 20.w, top: 20.h),
-                            child: Column(
+                                left: 10.w, right: 10.w, top: 20.h),
+                            child:Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    CustomText(
-                                      text: "Contact Person",
-                                      size: 14.sp,
-                                      color: AppColors.blackColor,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    CustomText(
-                                      text: "Contact Number",
-                                      size: 14.sp,
-                                      color: AppColors.blackColor,
-                                      fontWeight: FontWeight.w600,
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    CustomText(
-                                        text: "Ali Usman",
-                                        size: 14.sp,
-                                        color: AppColors.blackColor,
-                                        fontWeight: FontWeight.w400),
-                                    Container(
-                                      width: 130.w,
-                                      child: CustomText(
-                                          text: "+923123456789",
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+
+                                      children: [
+                                        CustomText(
+                                          text: "Contact Person",
                                           size: 14.sp,
                                           color: AppColors.blackColor,
-                                          fontWeight: FontWeight.w400),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      height: 45.h,
-                                      width: 140.w,
-                                      child: CustomText(
-                                        text: "Pickup Location Address",
-                                        size: 14.sp,
-                                        color: AppColors.blackColor,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: 130.w,
-                                      child: CustomText(
-                                        text: "City",
-                                        size: 14.sp,
-                                        color: AppColors.blackColor,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      height: 45.h,
-                                      width: 140.w,
-                                      child: CustomText(
-                                        text:
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        CustomText(
+                                            text: "Ali Usman",
+                                            size: 14.sp,
+                                            color: AppColors.blackColor,
+                                            fontWeight: FontWeight.w400),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        Container(
+                                          // height: 45.h,
+                                          width: MediaQuery.of(context).size.width*0.4,
+                                          child: CustomText(
+                                            text: "Pickup Location Address",
+                                            size: 14.sp,
+                                            color: AppColors.blackColor,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        Container(
+                                          height: 45.h,
+                                          width: MediaQuery.of(context).size.width*0.4,
+
+                                          child: CustomText(
+                                            text:
                                             "house 31 rafi block bahria town phase 8",
-                                        size: 14.sp,
-                                        color: AppColors.blackColor,
-                                        fontWeight: FontWeight.w400,
-                                      ),
+                                            size: 14.sp,
+                                            color: AppColors.blackColor,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        CustomText(
+                                          text: "Postal Code",
+                                          size: 14.sp,
+                                          color: AppColors.blackColor,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        CustomText(
+                                          text: "123",
+                                          size: 14.sp,
+                                          color: AppColors.blackColor,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        CustomText(
+                                          text: "GST Number",
+                                          size: 14.sp,
+                                          color: AppColors.blackColor,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        CustomText(
+                                          text: "12345",
+                                          size: 14.sp,
+                                          color: AppColors.blackColor,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+
+                                      ],
                                     ),
-                                    Container(
-                                      width: 130.w,
-                                      child: CustomText(
-                                        text: "Rawalpindi",
-                                        size: 14.sp,
-                                        color: AppColors.blackColor,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    CustomText(
-                                      text: "Postal Code",
-                                      size: 14.sp,
-                                      color: AppColors.blackColor,
-                                      fontWeight: FontWeight.w600,
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        CustomText(
+                                          text: "Contact Number",
+                                          size: 14.sp,
+                                          color: AppColors.blackColor,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        Container(
+                                          width: 130.w,
+                                          child: CustomText(
+                                              text: "+923123456789",
+                                              size: 14.sp,
+                                              color: AppColors.blackColor,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        Container(
+                                          width: 130.w,
+                                          child: CustomText(
+                                            text: "City",
+                                            size: 14.sp,
+                                            color: AppColors.blackColor,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        Container(
+                                          width: 130.w,
+                                          child: CustomText(
+                                            text: "Rawalpindi",
+                                            size: 14.sp,
+                                            color: AppColors.blackColor,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        Container(
+                                          width: 130.w,
+                                          child: CustomText(
+                                            text: "Province",
+                                            size: 14.sp,
+                                            color: AppColors.blackColor,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        Container(
+                                          width: 130.w,
+                                          child: CustomText(
+                                            text: "Punjab",
+                                            size: 14.sp,
+                                            color: AppColors.blackColor,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+
+                                      ],
                                     ),
-                                    Container(
-                                      width: 130.w,
-                                      child: CustomText(
-                                        text: "Province",
-                                        size: 14.sp,
-                                        color: AppColors.blackColor,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    )
+
                                   ],
-                                ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    CustomText(
-                                      text: "123",
-                                      size: 14.sp,
-                                      color: AppColors.blackColor,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                    Container(
-                                      width: 130.w,
-                                      child: CustomText(
-                                        text: "Punjab",
-                                        size: 14.sp,
-                                        color: AppColors.blackColor,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    CustomText(
-                                      text: "GST Number",
-                                      size: 14.sp,
-                                      color: AppColors.blackColor,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    SizedBox(),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    CustomText(
-                                      text: "12345",
-                                      size: 14.sp,
-                                      color: AppColors.blackColor,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                    SizedBox()
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 10.h,
                                 ),
                                 Divider(
                                   thickness: 2.5,
@@ -676,88 +661,98 @@ class _BookDeliveryScreenState extends State<BookDeliveryScreen>
                         SizedBox(
                           height: 5.h,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              height: 46.h,
-                              width: 170.w,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(2.sp),
-                                  border: Border.all(color: Color(0xffC7C4C4)),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 2,
-                                      spreadRadius: 1,
-                                      color: Colors.black.withOpacity(0.10),
-                                    ),
-                                  ]),
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 3.h,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  // height: 46.h,
+                                  // width: 170.w,
+                                  padding:EdgeInsets.only(bottom: 16.h),
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(2.sp),
+                                      border: Border.all(color: Color(0xffC7C4C4)),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          blurRadius: 2,
+                                          spreadRadius: 1,
+                                          color: Colors.black.withOpacity(0.10),
+                                        ),
+                                      ]),
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 3.h,
+                                      ),
+                                      CustomText(
+                                        text: "Call Us",
+                                        size: 9.0.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.blackColor,
+                                      ),
+                                      SizedBox(
+                                        height: 3.h,
+                                      ),
+                                      CustomText(
+                                        text: "+92-12-351-87677 (11am-5pm)",
+                                        size: 10.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.blackColor,
+                                      )
+                                    ],
                                   ),
-                                  CustomText(
-                                    text: "Call Us",
-                                    size: 9.0.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: AppColors.blackColor,
-                                  ),
-                                  SizedBox(
-                                    height: 3.h,
-                                  ),
-                                  CustomText(
-                                    text: "+92-12-351-87677 (11am-5pm)",
-                                    size: 10.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: AppColors.blackColor,
-                                  )
-                                ],
+                                ),
                               ),
-                            ),
-                            Container(
-                              height: 46.h,
-                              width: 170.w,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                    color: Color(0xffC7C4C4),
+                              SizedBox(width: 30,),
+                              Expanded(
+                                child: Container(
+                                  // height: 46.h,
+                                  // width: 170.w,
+                                  padding:EdgeInsets.only(bottom: 16.h),
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      border: Border.all(
+                                        color: Color(0xffC7C4C4),
+                                      ),
+                                      borderRadius: BorderRadius.circular(2.sp),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            blurRadius: 2,
+                                            spreadRadius: 1,
+                                            color: Colors.black.withOpacity(0.10))
+                                      ]),
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 3.h,
+                                      ),
+                                      CustomText(
+                                        text: "Email Us",
+                                        size: 9.0.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.blackColor,
+                                      ),
+                                      SizedBox(
+                                        height: 3.h,
+                                      ),
+                                      CustomText(
+                                        text: "Support@dialboxx.com",
+                                        size: 10.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.blackColor,
+                                      )
+                                    ],
                                   ),
-                                  borderRadius: BorderRadius.circular(2.sp),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        blurRadius: 2,
-                                        spreadRadius: 1,
-                                        color: Colors.black.withOpacity(0.10))
-                                  ]),
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 3.h,
-                                  ),
-                                  CustomText(
-                                    text: "Email Us",
-                                    size: 9.0.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: AppColors.blackColor,
-                                  ),
-                                  SizedBox(
-                                    height: 3.h,
-                                  ),
-                                  CustomText(
-                                    text: "Support@dialboxx.com",
-                                    size: 10.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: AppColors.blackColor,
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 30.h,
                         ),
                         CustomText(
                           text: "Frequently asked question (FAQs)",
@@ -830,7 +825,7 @@ class _BookDeliveryScreenState extends State<BookDeliveryScreen>
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                width: 320.w,
+                                // width: 320.w,
                                 child: CustomText(
                                   text:
                                       "How do I start shipping with Dialboxx Delivery?",
@@ -960,14 +955,12 @@ class _BookDeliveryScreenState extends State<BookDeliveryScreen>
                         dropDown4
                             ? Padding(
                                 padding: EdgeInsets.only(right: 8.w),
-                                child: Container(
-                                  child: CustomText(
-                                    text:
-                                        "Dialboxx partner with leading courier companies to get you the most & cost-effective shipping efficiency",
-                                    color: Color(0xff656565),
-                                    size: 12.sp,
-                                    fontWeight: FontWeight.w400,
-                                  ),
+                                child: CustomText(
+                                  text:
+                                      "Dialboxx partner with leading courier companies to get you the most & cost-effective shipping efficiency",
+                                  color: Color(0xff656565),
+                                  size: 12.sp,
+                                  fontWeight: FontWeight.w400,
                                 ),
                               )
                             : SizedBox(),

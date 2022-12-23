@@ -37,6 +37,7 @@ class _OrderTypeScreenState extends State<OrderTypeScreen> {
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch  ,
           children: [
             HeaderContainer(
               text: "Order Type",
@@ -50,7 +51,8 @@ class _OrderTypeScreenState extends State<OrderTypeScreen> {
                 children: [
                   Container(
                     height: 140.h,
-                    width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.symmetric(horizontal: 12.w),
+                    // width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(4.sp),
@@ -147,7 +149,8 @@ class _OrderTypeScreenState extends State<OrderTypeScreen> {
                   ),
                   Container(
                     height: 140.h,
-                    width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.symmetric(horizontal: 12.w),
+                    // width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(4.sp),
@@ -244,7 +247,8 @@ class _OrderTypeScreenState extends State<OrderTypeScreen> {
                   ),
                   Container(
                     height: 310.h,
-                    width: MediaQuery.of(context).size.width,
+                    // width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.symmetric(horizontal: 12.w),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(4.sp),
@@ -452,21 +456,25 @@ class _OrderTypeScreenState extends State<OrderTypeScreen> {
                   SizedBox(
                     height: 20.h,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Get.to(() => OrderDetailsScreen());
-                    },
-                    child: CustomButtonClick(
-                      height: 45.h,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(6.sp),
-                          color: AppColors.primaryColor),
-                      child: Center(
-                        child: CustomText(
-                          text: "Review Order",
-                          color: Colors.white,
-                          size: 16.sp,
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 10.w),
+
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.to(() => OrderDetailsScreen());
+                      },
+                      child: CustomButtonClick(
+                        height: 45.h,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6.sp),
+                            color: AppColors.primaryColor),
+                        child: Center(
+                          child: CustomText(
+                            text: "Review Order",
+                            color: Colors.white,
+                            size: 16.sp,
+                          ),
                         ),
                       ),
                     ),

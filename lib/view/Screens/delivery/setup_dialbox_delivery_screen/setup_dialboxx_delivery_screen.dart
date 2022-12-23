@@ -56,6 +56,7 @@ class _SetUpDialBoxDeliveryScreenState
       ),
       body: SingleChildScrollView(
         child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             HeaderContainer(
               text: "Set up Dialboxx Delivery",
@@ -70,7 +71,7 @@ class _SetUpDialBoxDeliveryScreenState
                   ),
                   Container(
                     height: 130.h,
-                    width: MediaQuery.of(context).size.width,
+                    // width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       color: Color(0xffF2F2F2),
                       borderRadius: BorderRadius.circular(3.sp),
@@ -84,6 +85,9 @@ class _SetUpDialBoxDeliveryScreenState
                     ),
                     child: Column(
                       children: [
+                        SizedBox(
+                          height: 8.h,
+                        ),
                         CustomText(
                           text:
                               "Get your Order delivered with Dialboxx Delivery.",
@@ -92,7 +96,7 @@ class _SetUpDialBoxDeliveryScreenState
                           fontWeight: FontWeight.w400,
                         ),
                         SizedBox(
-                          height: 4.h,
+                          height: 8.h,
                         ),
                         Padding(
                           padding: EdgeInsets.only(
@@ -188,7 +192,7 @@ class _SetUpDialBoxDeliveryScreenState
                           ),
                         ),
                         SizedBox(
-                          height: 10.h,
+                          height: 25.h,
                         ),
                         CustomButtonClick(
                           height: 30.h,

@@ -12,8 +12,7 @@ class OrderNumberDetailsScreen extends StatefulWidget {
   const OrderNumberDetailsScreen({super.key});
 
   @override
-  State<OrderNumberDetailsScreen> createState() =>
-      _OrderNumberDetailsScreenState();
+  State<OrderNumberDetailsScreen> createState() => _OrderNumberDetailsScreenState();
 }
 
 class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
@@ -23,6 +22,7 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
   bool detain = false;
   bool overland = false;
   bool deliveryInfo = false;
+
   @override
   void initState() {
     // print('object');
@@ -49,293 +49,261 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
             )
           ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              HeaderContainer(
-                text: "Order #31245",
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Container(
-                      height: 37.h,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          color: AppColors.whitColor,
-                          borderRadius: BorderRadius.circular(6.sp),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 2,
-                                spreadRadius: 1,
-                                color: Colors.black.withOpacity(0.15))
-                          ]),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10.w),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CustomText(
-                              text: "Nov, 04:35 PM",
-                              size: 14.sp,
-                              color: AppColors.blackColor,
-                              fontWeight: FontWeight.w300,
-                            ),
-                            Row(
-                              children: [
-                                CircleAvatar(
-                                  radius: 5.sp,
-                                ),
-                                CustomText(
-                                  text: " Delivered",
-                                  fontWeight: FontWeight.w300,
-                                  size: 14.sp,
-                                )
-                              ],
-                            )
-                          ],
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                HeaderContainer(
+                  text: "Order #31245",
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 14.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Container(
+                        height: 37.h,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                            color: AppColors.whitColor,
+                            borderRadius: BorderRadius.circular(6.sp),
+                            boxShadow: [BoxShadow(blurRadius: 2, spreadRadius: 1, color: Colors.black.withOpacity(0.15))]),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              CustomText(
+                                text: "Nov, 04:35 PM",
+                                size: 14.sp,
+                                color: AppColors.blackColor,
+                                fontWeight: FontWeight.w300,
+                              ),
+                              Row(
+                                children: [
+                                  CircleAvatar(
+                                    radius: 5.sp,
+                                  ),
+                                  CustomText(
+                                    text: " Delivered",
+                                    fontWeight: FontWeight.w300,
+                                    size: 14.sp,
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    deliveryInfo
-                        ? Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                              CustomText(
-                                text: "Delivery Information",
-                                fontWeight: FontWeight.w500,
-                                size: 15.sp,
-                                color: AppColors.blackColor,
-                              ),
-                              Container(
-                                //height: 201.h,
-                                width: MediaQuery.of(context).size.width,
-                                decoration: BoxDecoration(
-                                  color: AppColors.whitColor,
-                                  borderRadius: BorderRadius.circular(6.sp),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        blurRadius: 2,
-                                        spreadRadius: 1,
-                                        color: Colors.black.withOpacity(0.15))
-                                  ],
+                      deliveryInfo
+                          ? Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height: 10.h,
                                 ),
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                      left: 10.w, top: 8.h, right: 10.w),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Container(
-                                            width: 140.w,
-                                            child: CustomText(
-                                              text: "Delivery Company",
-                                              size: 13.sp,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                          ),
-                                          Container(
-                                            height: 30.h,
-                                            width: 60.w,
-                                            child: Image.asset(
-                                              'assets/images/tcs.png',
-                                              fit: BoxFit.cover,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 5.h,
-                                      ),
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            width: 140.w,
-                                            child: CustomText(
-                                              text: "Request Date",
-                                              size: 13.sp,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                          ),
-                                          Container(
-                                            width: 190.w,
-                                            height: 20.h,
-                                            child: CustomText(
-                                              text: "Nov 03,2022 04:02:12PM",
-                                              size: 13.sp,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 10.h,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Container(
-                                            width: 140.w,
-                                            child: CustomText(
-                                              text: "Delivery Charges",
-                                              size: 13.sp,
-                                              fontWeight: FontWeight.w300,
-                                            ),
-                                          ),
-                                          CustomText(
-                                            text: "Rs.200",
-                                            size: 13.sp,
-                                            fontWeight: FontWeight.w300,
-                                          )
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 10.h,
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(right: 20.w),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                CustomText(
+                                  text: "Delivery Information",
+                                  fontWeight: FontWeight.w500,
+                                  size: 15.sp,
+                                  color: AppColors.blackColor,
+                                ),
+                                Container(
+                                  //height: 201.h,
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.whitColor,
+                                    borderRadius: BorderRadius.circular(6.sp),
+                                    boxShadow: [BoxShadow(blurRadius: 2, spreadRadius: 1, color: Colors.black.withOpacity(0.15))],
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left: 10.w, top: 8.h, right: 10.w),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
                                           children: [
-                                            GestureDetector(
-                                              onTap: () {
-                                                Get.to(() =>
-                                                    TrackingOrderScreen());
-                                              },
-                                              child: Container(
+                                            Container(
+                                              width: 140.w,
+                                              child: CustomText(
+                                                text: "Delivery Company",
+                                                size: 13.sp,
+                                                fontWeight: FontWeight.w300,
+                                              ),
+                                            ),
+                                            Container(
+                                              height: 30.h,
+                                              width: 60.w,
+                                              child: Image.asset(
+                                                'assets/images/tcs.png',
+                                                fit: BoxFit.cover,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        Row(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              width: 140.w,
+                                              child: CustomText(
+                                                text: "Request Date",
+                                                size: 13.sp,
+                                                fontWeight: FontWeight.w300,
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 190.w,
+                                              height: 20.h,
+                                              child: CustomText(
+                                                text: "Nov 03,2022 04:02:12PM",
+                                                size: 13.sp,
+                                                fontWeight: FontWeight.w300,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 10.h,
+                                        ),
+                                        Row(
+                                          children: [
+                                            Container(
+                                              width: 140.w,
+                                              child: CustomText(
+                                                text: "Delivery Charges",
+                                                size: 13.sp,
+                                                fontWeight: FontWeight.w300,
+                                              ),
+                                            ),
+                                            CustomText(
+                                              text: "Rs.200",
+                                              size: 13.sp,
+                                              fontWeight: FontWeight.w300,
+                                            )
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 10.h,
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(right: 20.w),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              GestureDetector(
+                                                onTap: () {
+                                                  Get.to(() => TrackingOrderScreen());
+                                                },
+                                                child: Container(
+                                                  height: 35.h,
+                                                  width: 130.w,
+                                                  decoration: BoxDecoration(color: AppColors.primaryColor, borderRadius: BorderRadius.circular(0.sp)),
+                                                  child: Center(
+                                                    child: CustomText(
+                                                      text: "Track Order",
+                                                      color: AppColors.whitColor,
+                                                      size: 13.sp,
+                                                      fontWeight: FontWeight.w500,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
                                                 height: 35.h,
-                                                width: 130.w,
-                                                decoration: BoxDecoration(
-                                                    color:
-                                                        AppColors.primaryColor,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            0.sp)),
+                                                width: 140.w,
+                                                decoration: BoxDecoration(color: AppColors.secondaryColor, borderRadius: BorderRadius.circular(0.sp)),
                                                 child: Center(
                                                   child: CustomText(
-                                                    text: "Track Order",
+                                                    text: "Print Label",
                                                     color: AppColors.whitColor,
                                                     size: 13.sp,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                            Container(
-                                              height: 35.h,
-                                              width: 140.w,
-                                              decoration: BoxDecoration(
-                                                  color:
-                                                      AppColors.secondaryColor,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          0.sp)),
-                                              child: Center(
-                                                child: CustomText(
-                                                  text: "Print Label",
-                                                  color: AppColors.whitColor,
-                                                  size: 13.sp,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 15.h,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          )
-                        : SizedBox(),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    CustomText(
-                      text: "ITEMS",
-                      fontWeight: FontWeight.w500,
-                      size: 15.sp,
-                      color: AppColors.blackColor,
-                    ),
-                    Container(
-                      // height: 70.h,
-                      decoration: BoxDecoration(
-                        color: AppColors.whitColor,
-                        borderRadius: BorderRadius.circular(6.sp),
-                        boxShadow: [
-                          BoxShadow(
-                              blurRadius: 2,
-                              spreadRadius: 1,
-                              color: AppColors.blackColor.withOpacity(0.15))
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          ListView.builder(
-                            itemCount: 2,
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: EdgeInsets.only(
-                                    left: 8.w, right: 8.w, top: 8.h),
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Container(
-                                          height: 65.h,
-                                          width: 60.w,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(4.sp),
-                                              border: Border.all(
-                                                  color: Color(0xff707070))),
-                                          child: Center(
-                                            child: SvgPicture.asset(
-                                              'assets/svg/product_imag.svg',
-                                              height: 18.h,
-                                              width: 24.w,
-                                            ),
+                                            ],
                                           ),
-                                          // color: AppColors.primaryColor,
                                         ),
                                         SizedBox(
-                                          width: 10.w,
+                                          height: 15.h,
                                         ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )
+                          : SizedBox(),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      CustomText(
+                        text: "ITEMS",
+                        fontWeight: FontWeight.w500,
+                        size: 15.sp,
+                        color: AppColors.blackColor,
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Container(
+                        // height: 70.h,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: AppColors.whitColor,
+                          borderRadius: BorderRadius.circular(6.sp),
+                          boxShadow: [BoxShadow(blurRadius: 2, spreadRadius: 1, color: AppColors.blackColor.withOpacity(0.15))],
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            ListView.builder(
+                              itemCount: 2,
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: EdgeInsets.only(left: 8.w, right: 8.w, top: 8.h),
+                                  child: Row(
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Container(
+                                            height: 65.h,
+                                            width: 60.w,
+                                            decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(4.sp), border: Border.all(color: Color(0xff707070))),
+                                            child: Center(
+                                              child: SvgPicture.asset(
+                                                'assets/svg/product_imag.svg',
+                                                height: 18.h,
+                                                width: 24.w,
+                                              ),
+                                            ),
+                                            // color: AppColors.primaryColor,
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        width: 10.w,
+                                      ),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                CustomText(
-                                                  text: "Daal Food",
-                                                  size: 14.sp,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: AppColors.blackColor,
-                                                ),
-                                              ],
+                                            CustomText(
+                                              text: "Daal Food",
+                                              size: 14.sp,
+                                              fontWeight: FontWeight.w500,
+                                              color: AppColors.blackColor,
                                             ),
                                             CustomText(
                                               text: "1 unit",
@@ -343,367 +311,364 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                                               fontWeight: FontWeight.w300,
                                               color: AppColors.blackColor,
                                             ),
-                                            Container(
-                                              width: 265.w,
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  CustomText(
-                                                    text: "x 2",
-                                                    size: 14.sp,
-                                                    fontWeight: FontWeight.w300,
-                                                    color: AppColors.blackColor,
-                                                  ),
-                                                  CustomText(
-                                                    text: "Rs.200",
-                                                    size: 14.sp,
-                                                    fontWeight: FontWeight.w300,
-                                                    color: AppColors.blackColor,
-                                                  ),
-                                                ],
-                                              ),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                CustomText(
+                                                  text: "x 2",
+                                                  size: 14.sp,
+                                                  fontWeight: FontWeight.w300,
+                                                  color: AppColors.blackColor,
+                                                ),
+                                                CustomText(
+                                                  text: "Rs.200",
+                                                  size: 14.sp,
+                                                  fontWeight: FontWeight.w300,
+                                                  color: AppColors.blackColor,
+                                                ),
+                                              ],
                                             ),
                                           ],
                                         ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
-                          ),
-                          SizedBox(
-                            height: 20.h,
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    CustomText(
-                      text: "Customer Invoice",
-                      fontWeight: FontWeight.w300,
-                      size: 15.sp,
-                      color: AppColors.blackColor,
-                    ),
-                    Container(
-                      //height: 201.h,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        color: AppColors.whitColor,
-                        borderRadius: BorderRadius.circular(6.sp),
-                        boxShadow: [
-                          BoxShadow(
-                              blurRadius: 2,
-                              spreadRadius: 1,
-                              color: Colors.black.withOpacity(0.15))
-                        ],
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 10.w, vertical: 8.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                CustomText(
-                                  text: "Total",
-                                  size: 13.sp,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                                CustomText(
-                                  text: "Rs.400",
-                                  size: 13.sp,
-                                  fontWeight: FontWeight.w300,
-                                )
-                              ],
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
                             ),
                             SizedBox(
-                              height: 5.h,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                CustomText(
-                                  text: "Delivery Fee",
-                                  size: 13.sp,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                                CustomText(
-                                  text: "Rs.400",
-                                  size: 13.sp,
-                                  fontWeight: FontWeight.w300,
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                CustomText(
-                                  text: "Grand total",
-                                  size: 13.sp,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                                CustomText(
-                                  text: "Rs.400",
-                                  size: 13.sp,
-                                  fontWeight: FontWeight.w300,
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 5.h,
+                              height: 20.h,
                             )
                           ],
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    CustomText(
-                      text: "Customer Details",
-                      fontWeight: FontWeight.w300,
-                      size: 15.sp,
-                      color: AppColors.blackColor,
-                    ),
-                    Container(
-                      //height: 201.h,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        color: AppColors.whitColor,
-                        borderRadius: BorderRadius.circular(6.sp),
-                        boxShadow: [
-                          BoxShadow(
-                              blurRadius: 2,
-                              spreadRadius: 1,
-                              color: Colors.black.withOpacity(0.15))
-                        ],
+                      SizedBox(
+                        height: 10.h,
                       ),
-                      child: Padding(
-                        padding:
-                            EdgeInsets.only(left: 10.w, top: 8.h, right: 10.w),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  width: 140.w,
-                                  child: CustomText(
-                                    text: "Name",
+                      CustomText(
+                        text: "Customer Invoice",
+                        fontWeight: FontWeight.w300,
+                        size: 15.sp,
+                        color: AppColors.blackColor,
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Container(
+                        //height: 201.h,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: AppColors.whitColor,
+                          borderRadius: BorderRadius.circular(6.sp),
+                          boxShadow: [BoxShadow(blurRadius: 2, spreadRadius: 1, color: Colors.black.withOpacity(0.15))],
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  CustomText(
+                                    text: "Total",
                                     size: 13.sp,
                                     fontWeight: FontWeight.w300,
                                   ),
-                                ),
-                                CustomText(
-                                  text: "Usman",
-                                  size: 13.sp,
-                                  fontWeight: FontWeight.w300,
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Row(
-                              children: [
-                                Container(
-                                  width: 140.w,
-                                  child: CustomText(
-                                    text: "Mobile No",
+                                  CustomText(
+                                    text: "Rs.400",
+                                    size: 13.sp,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                height: 5.h,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  CustomText(
+                                    text: "Delivery Fee",
                                     size: 13.sp,
                                     fontWeight: FontWeight.w300,
                                   ),
-                                ),
-                                CustomText(
-                                  text: "+923123015089",
-                                  size: 13.sp,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                                SizedBox(
-                                  width: 10.w,
-                                ),
-                                CircleAvatar(
-                                  radius: 15.sp,
-                                  backgroundColor: Colors.black,
-                                  child: Center(
-                                    child: Icon(
-                                      Icons.call,
-                                      color: Colors.white,
-                                      size: 20.sp,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10.w,
-                                ),
-                                CircleAvatar(
-                                  radius: 15.sp,
-                                  backgroundColor: Colors.green,
-                                  child: Center(
-                                    child: Icon(
-                                      Icons.call,
-                                      color: Colors.white,
-                                      size: 20.sp,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: 140.w,
-                                  child: CustomText(
-                                    text: "Address",
+                                  CustomText(
+                                    text: "Rs.400",
+                                    size: 13.sp,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                height: 5.h,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  CustomText(
+                                    text: "Grand total",
                                     size: 13.sp,
                                     fontWeight: FontWeight.w300,
                                   ),
-                                ),
-                                Container(
-                                  width: 190.w,
-                                  height: 45.h,
-                                  child: CustomText(
-                                    text: "house no 123 bahria town,rawalpindi",
+                                  CustomText(
+                                    text: "Rs.400",
                                     size: 13.sp,
                                     fontWeight: FontWeight.w300,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Row(
-                              children: [
-                                Container(
-                                  width: 140.w,
-                                  child: CustomText(
-                                    text: "Postal code",
-                                    size: 13.sp,
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                                ),
-                                CustomText(
-                                  text: "1234",
-                                  size: 13.sp,
-                                  fontWeight: FontWeight.w300,
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Row(
-                              children: [
-                                Container(
-                                  width: 140.w,
-                                  child: CustomText(
-                                    text: "City",
-                                    size: 13.sp,
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                                ),
-                                CustomText(
-                                  text: "Rawalpindi",
-                                  size: 13.sp,
-                                  fontWeight: FontWeight.w300,
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Row(
-                              children: [
-                                Container(
-                                  width: 140.w,
-                                  child: CustomText(
-                                    text: "Payment",
-                                    size: 13.sp,
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                                ),
-                                CustomText(
-                                  text: "COD",
-                                  size: 13.sp,
-                                  fontWeight: FontWeight.w300,
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                          ],
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                height: 5.h,
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    acceptOrder
-                        ? Visibility(
-                            visible: !deliveryInfo,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.insert_emoticon_rounded,
-                                  color: AppColors.darkgreenColor,
-                                ),
-                                SizedBox(
-                                  width: 6.w,
-                                ),
-                                CustomText(
-                                  text: "Order Accepted",
-                                  size: 13.sp,
-                                  color: AppColors.blackColor,
-                                )
-                              ],
-                            ),
-                          )
-                        : SizedBox()
-                  ],
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      CustomText(
+                        text: "Customer Details",
+                        fontWeight: FontWeight.w300,
+                        size: 15.sp,
+                        color: AppColors.blackColor,
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Container(
+                        //height: 201.h,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: AppColors.whitColor,
+                          borderRadius: BorderRadius.circular(6.sp),
+                          boxShadow: [BoxShadow(blurRadius: 2, spreadRadius: 1, color: Colors.black.withOpacity(0.15))],
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            top: 8.h,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    // width: 140.w,
+                                    child: CustomText(
+                                      text: "Name",
+                                      size: 13.sp,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                  Container(
+                                    // width: 140.w,
+                                    child: CustomText(
+                                      text: "Mobile No",
+                                      size: 13.sp,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                  Container(
+                                    // width: 140.w,
+                                    child: CustomText(
+                                      text: "Address",
+                                      size: 13.sp,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                  Container(
+                                    // width: 140.w,
+                                    child: CustomText(
+                                      text: "Postal code",
+                                      size: 13.sp,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                  Container(
+                                    // width: 140.w,
+                                    child: CustomText(
+                                      text: "City",
+                                      size: 13.sp,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                  Container(
+                                    // width: 140.w,
+                                    child: CustomText(
+                                      text: "Payment",
+                                      size: 13.sp,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CustomText(
+                                    text: "Usman",
+                                    size: 13.sp,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                  Row(
+                                    children: [
+                                      CustomText(
+                                        text: "+923123015089",
+                                        size: 13.sp,
+                                        fontWeight: FontWeight.w300,
+                                      ),
+                                      SizedBox(
+                                        width: 10.w,
+                                      ),
+                                      CircleAvatar(
+                                        radius: 15.sp,
+                                        backgroundColor: Colors.black,
+                                        child: Center(
+                                          child: Icon(
+                                            Icons.call,
+                                            color: Colors.white,
+                                            size: 20.sp,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 10.w,
+                                      ),
+                                      CircleAvatar(
+                                        radius: 15.sp,
+                                        backgroundColor: Colors.green,
+                                        child: Center(
+                                          child: Icon(
+                                            Icons.call,
+                                            color: Colors.white,
+                                            size: 20.sp,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                  Container(
+                                    // width: 190.w,
+                                    // height: 45.h,
+                                    child: CustomText(
+                                      text: "house no 123 bahria town,rawalpindi",
+                                      size: 13.sp,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                  CustomText(
+                                    text: "1234",
+                                    size: 13.sp,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                  CustomText(
+                                    text: "Rawalpindi",
+                                    size: 13.sp,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                  CustomText(
+                                    text: "COD",
+                                    size: 13.sp,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      acceptOrder
+                          ? Visibility(
+                              visible: !deliveryInfo,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.insert_emoticon_rounded,
+                                    color: AppColors.darkgreenColor,
+                                  ),
+                                  SizedBox(
+                                    width: 6.w,
+                                  ),
+                                  CustomText(
+                                    text: "Order Accepted",
+                                    size: 13.sp,
+                                    color: AppColors.blackColor,
+                                  )
+                                ],
+                              ),
+                            )
+                          : SizedBox()
+                    ],
+                  ),
                 ),
-              ),
-              Visibility(
-                visible: !deliveryInfo,
-                child: SizedBox(
-                  height: 80.h,
-                ),
-              )
-            ],
+                Visibility(
+                  visible: !deliveryInfo,
+                  child: SizedBox(
+                    height: 80.h,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
         bottomSheet: !deliveryInfo
             ? Container(
                 height: 60.h,
-                width: MediaQuery.of(context).size.width,
+                // width: MediaQuery.of(context).size.width,
                 color: Colors.white,
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 12.w),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
                         height: 35.h,
                         width: 160.w,
-                        decoration: BoxDecoration(
-                            color: AppColors.secondaryColor,
-                            borderRadius: BorderRadius.circular(6.sp)),
+                        decoration: BoxDecoration(color: AppColors.secondaryColor, borderRadius: BorderRadius.circular(6.sp)),
                         child: Center(
                           child: CustomText(
                             text: "Reject Order",
@@ -723,9 +688,7 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                               child: Container(
                                 height: 35.h,
                                 width: 160.w,
-                                decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    borderRadius: BorderRadius.circular(6.sp)),
+                                decoration: BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(6.sp)),
                                 child: Center(
                                   child: CustomText(
                                     text: "Accept Order",
@@ -747,9 +710,7 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                               child: Container(
                                 height: 35.h,
                                 width: 160.w,
-                                decoration: BoxDecoration(
-                                    color: AppColors.primaryColor,
-                                    borderRadius: BorderRadius.circular(6.sp)),
+                                decoration: BoxDecoration(color: AppColors.primaryColor, borderRadius: BorderRadius.circular(6.sp)),
                                 child: Center(
                                   child: CustomText(
                                     text: "Deliver Order",
@@ -769,10 +730,7 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
 
   Future showModelBottomSheet({Function? callBack}) {
     return showModalBottomSheet(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.sp),
-                topRight: Radius.circular(20.sp))),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(20.sp), topRight: Radius.circular(20.sp))),
         context: context,
         builder: (context) {
           return StatefulBuilder(
@@ -815,9 +773,7 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                         child: CustomButtonClick(
                           height: 40.h,
                           width: 200.w,
-                          decoration: BoxDecoration(
-                              color: AppColors.darkgreenColor,
-                              borderRadius: BorderRadius.circular(8.sp)),
+                          decoration: BoxDecoration(color: AppColors.darkgreenColor, borderRadius: BorderRadius.circular(8.sp)),
                           child: Center(
                             child: CustomText(
                               text: "Yes,Accept Order",
@@ -841,10 +797,12 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
           setState(() {});
         });
   }
+
   //.....................Delivered Model Dialog..........................//
 
   Future delivershowModelBottomSheet({Function()? callBack}) {
     return showModalBottomSheet(
+        isScrollControlled: true,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20.sp),
@@ -974,25 +932,20 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
 
   Future shipWithshowModelBottomSheet() {
     return showModalBottomSheet(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.sp),
-                topRight: Radius.circular(20.sp))),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(20.sp), topRight: Radius.circular(20.sp))),
         context: context,
         builder: (context) {
           return StatefulBuilder(
             builder: (context, setState) {
               return Column(
                 mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Container(
                     height: 60.h,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                        color: Color(0xffF1D838),
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.sp),
-                            topRight: Radius.circular(20.sp))),
+                        color: Color(0xffF1D838), borderRadius: BorderRadius.only(topLeft: Radius.circular(20.sp), topRight: Radius.circular(20.sp))),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -1024,9 +977,7 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                     child: Container(
                       height: 65.h,
                       width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(7.sp),
-                          border: Border.all(color: Color(0xff707070))),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(7.sp), border: Border.all(color: Color(0xff707070))),
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10.w),
                         child: Row(
@@ -1036,8 +987,7 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                               child: Row(
                                 children: [
                                   Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       CustomText(
                                         text: "From",
@@ -1061,11 +1011,9 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                                   ),
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      SvgPicture.asset(
-                                          'assets/svg/shiping.svg'),
+                                      SvgPicture.asset('assets/svg/shiping.svg'),
                                     ],
                                   )
                                 ],
@@ -1123,11 +1071,7 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                               ),
                               Row(
                                 children: [
-                                  CustomText(
-                                      text: "Rs.200/kg",
-                                      fontWeight: FontWeight.w600,
-                                      size: 15.sp,
-                                      color: AppColors.secondaryColor),
+                                  CustomText(text: "Rs.200/kg", fontWeight: FontWeight.w600, size: 15.sp, color: AppColors.secondaryColor),
                                 ],
                               ),
                             ],
@@ -1157,19 +1101,14 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                                     height: 40.h,
                                     width: 100.w,
                                     decoration: BoxDecoration(
-                                      color: selectOverNight
-                                          ? AppColors.secondaryColor
-                                          : Colors.white,
-                                      border:
-                                          Border.all(color: Color(0xff707070)),
+                                      color: selectOverNight ? AppColors.secondaryColor : Colors.white,
+                                      border: Border.all(color: Color(0xff707070)),
                                       borderRadius: BorderRadius.circular(7.sp),
                                     ),
                                     child: Center(
                                       child: CustomText(
                                         text: 'Over Night',
-                                        color: selectOverNight
-                                            ? AppColors.whitColor
-                                            : AppColors.blackColor,
+                                        color: selectOverNight ? AppColors.whitColor : AppColors.blackColor,
                                         // AppColors.blackColor,
                                         fontWeight: FontWeight.bold,
                                         size: 12.sp,
@@ -1187,19 +1126,14 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                                     height: 40.h,
                                     width: 100.w,
                                     decoration: BoxDecoration(
-                                      color: detain
-                                          ? AppColors.secondaryColor
-                                          : Colors.white,
-                                      border:
-                                          Border.all(color: Color(0xff707070)),
+                                      color: detain ? AppColors.secondaryColor : Colors.white,
+                                      border: Border.all(color: Color(0xff707070)),
                                       borderRadius: BorderRadius.circular(7.sp),
                                     ),
                                     child: Center(
                                       child: CustomText(
                                         text: 'Detain',
-                                        color: detain
-                                            ? AppColors.whitColor
-                                            : AppColors.blackColor,
+                                        color: detain ? AppColors.whitColor : AppColors.blackColor,
                                         // AppColors.blackColor,
                                         fontWeight: FontWeight.bold,
                                         size: 12.sp,
@@ -1217,21 +1151,14 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                                     height: 40.h,
                                     width: 100.w,
                                     decoration: BoxDecoration(
-                                      color: overland
-                                          ? AppColors.secondaryColor
-                                          : Colors.white,
-                                      border: Border.all(
-                                          color: overland
-                                              ? AppColors.whitColor
-                                              : Color(0xff707070)),
+                                      color: overland ? AppColors.secondaryColor : Colors.white,
+                                      border: Border.all(color: overland ? AppColors.whitColor : Color(0xff707070)),
                                       borderRadius: BorderRadius.circular(7.sp),
                                     ),
                                     child: Center(
                                       child: CustomText(
                                         text: 'Overland',
-                                        color: overland
-                                            ? AppColors.whitColor
-                                            : AppColors.blackColor,
+                                        color: overland ? AppColors.whitColor : AppColors.blackColor,
                                         // AppColors.blackColor,
                                         fontWeight: FontWeight.bold,
                                         size: 12.sp,
@@ -1247,30 +1174,27 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                     height: 20.h,
                   ),
                   GestureDetector(
-                    onTap: !shipServices
-                        ? () {
-                            setState(() {
-                              shipServices = true;
-                            });
-                          }
-                        : () {
-                            setState(() {
-                              shipServices = false;
-                              Navigator.of(context).pop();
-                            });
-                            dialogWidget();
-                          },
+                    onTap: () {
+
+                      print('next button click');
+                      if (!shipServices) {
+                        setState(() {
+                          shipServices = true;
+                        });
+                      } else {
+                        setState(() {
+                          shipServices = false;
+                          Navigator.of(context).pop();
+                        });
+                        dialogWidget();
+                      }
+                    },
                     child: Container(
                       height: 45.h,
-                      width: 270.w,
-                      decoration: BoxDecoration(
-                          color: AppColors.secondaryColor,
-                          borderRadius: BorderRadius.circular(17.sp)),
+                      margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.2),
+                      decoration: BoxDecoration(color: AppColors.secondaryColor, borderRadius: BorderRadius.circular(17.sp)),
                       child: Center(
-                        child: CustomText(
-                            text: "Next",
-                            color: AppColors.whitColor,
-                            fontWeight: FontWeight.bold),
+                        child: CustomText(text: "Next", color: AppColors.whitColor, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -1292,8 +1216,7 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
     return showDialog(
         context: context,
         builder: (ctx) => AlertDialog(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25.sp)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.sp)),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -1314,9 +1237,7 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                   Container(
                     height: 30.h,
                     width: 30.w,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: AppColors.primaryColor),
-                        borderRadius: BorderRadius.circular(30.sp)),
+                    decoration: BoxDecoration(border: Border.all(color: AppColors.primaryColor), borderRadius: BorderRadius.circular(30.sp)),
                     child: Center(
                       child: Icon(
                         Icons.check,
@@ -1391,9 +1312,7 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                     child: Container(
                       height: 45.h,
                       width: 280.w,
-                      decoration: BoxDecoration(
-                          color: AppColors.secondaryColor,
-                          borderRadius: BorderRadius.circular(12.sp)),
+                      decoration: BoxDecoration(color: AppColors.secondaryColor, borderRadius: BorderRadius.circular(12.sp)),
                       child: Center(
                         child: CustomText(
                           text: "LABEL PRINT",
@@ -1414,9 +1333,7 @@ class _OrderNumberDetailsScreenState extends State<OrderNumberDetailsScreen> {
                     child: Container(
                       height: 45.h,
                       width: 280.w,
-                      decoration: BoxDecoration(
-                          color: Color(0xff555555),
-                          borderRadius: BorderRadius.circular(12.sp)),
+                      decoration: BoxDecoration(color: Color(0xff555555), borderRadius: BorderRadius.circular(12.sp)),
                       child: Center(
                         child: CustomText(
                           text: "LABEL PRINT",

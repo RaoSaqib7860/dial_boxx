@@ -32,15 +32,6 @@ class _DrawerSideMenuItemsState extends State<DrawerSideMenuItems>
     super.initState();
 
     _drawerController = KFDrawerController(initialPage: HomeScreen()
-        // ClassBuilder.fromString('HomeScreenPage'),
-
-        // items: [
-        //   KFDrawerItem.initWithPage(
-        //     text: Text('MAINllllllll', style: TextStyle(color: Colors.black)),
-        //     icon: Icon(Icons.home, color: Colors.white),
-        //     // page: EComHomeScreenPage(),
-        //   ),
-        // ],
         );
   }
 

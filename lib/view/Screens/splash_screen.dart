@@ -30,37 +30,35 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 220.h,
-            ),
-            CustomText(
-              text: 'WELCOME TO',
-              size: 40.sp,
-            ),
-            SizedBox(
-              height: 40.0.h,
-            ),
-            SizedBox(
-                height: 90.h,
-                // width: 210.w,
-                child: Image.asset(
-                  'assets/images/logoDialboxx.png',
-                  fit: BoxFit.cover,
-                )),
-            SizedBox(
-              height: 40.h,
-            ),
-            CustomText(
-              text: "Seller's Portal",
-              size: 28.sp,
-              fontWeight: FontWeight.bold,
-              color: AppColors.blackColor,
-            )
-          ],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          CustomText(
+            text: 'WELCOME TO',
+            size: 40.sp,
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: 40.0.h,
+          ),
+          SizedBox(
+              height: 90.h,
+              child: Image.asset(
+                'assets/images/logoDialboxx.png',
+                fit: BoxFit.contain,
+              )),
+          SizedBox(
+            height: 40.h,
+          ),
+          CustomText(
+            text: "Seller's Portal",
+            size: 28.sp,
+            textAlign: TextAlign.center,
+            fontWeight: FontWeight.bold,
+            color: AppColors.blackColor,
+          )
+        ],
       ),
     );
   }

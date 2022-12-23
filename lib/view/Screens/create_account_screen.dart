@@ -34,227 +34,221 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 100.h,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  color: AppColors.whitColor,
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(35.sp),
-                      topLeft: Radius.circular(35.sp))),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 40.0.h,
+      body: SafeArea(
+        child:  SizedBox.expand(
+          child:   Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            margin:const EdgeInsets.only(top: 70),
+            decoration: BoxDecoration(
+                color: AppColors.whitColor,
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(35.sp),
+                    topLeft: Radius.circular(35.sp))),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 30.0),
+                  child: Image.asset(
+                    'assets/images/logoDialboxx.png',
+                    fit: BoxFit.contain,
+                    height: 90.h,
                   ),
-                  SizedBox(
-                      height: 90.h,
-                      width: 233.w,
-                      child: Image.asset(
-                        'assets/images/logoDialboxx.png',
-                        fit: BoxFit.cover,
-                      )),
-                  SizedBox(
-                    height: 80.h,
-                  ),
-                  CustomText(
-                    text: 'Start 7 days Free Trial',
-                    size: 24.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                  SizedBox(
-                    height: 45.h,
-                  ),
-                  Container(
-                    height: 46.h,
-                    width: 220.w,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25.sp),
-                        border: Border.all()),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              index = 0;
-                            });
-                          },
-                          child: Container(
-                            height: 46.h,
-                            width: 100.w,
-                            decoration: BoxDecoration(
-                                color: index == 1
-                                    ? Colors.white
-                                    : AppColors.secondaryColor,
-                                borderRadius: BorderRadius.circular(30.sp)),
-                            child: Center(
-                                child: CustomText(
-                                    text: "Email",
-                                    color: index == 1
-                                        ? AppColors.blackColor
-                                        : AppColors.whitColor,
-                                    size: 12.5.sp,
-                                    fontWeight: index == 1
-                                        ? FontWeight.w400
-                                        : FontWeight.w600)),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              index = 1;
-                            });
-                          },
-                          child: Container(
-                            height: 46.h,
-                            width: 100.w,
-                            decoration: BoxDecoration(
-                                color: index == 0
-                                    ? Colors.white
-                                    : AppColors.primaryColor,
-                                borderRadius: BorderRadius.circular(30.sp)),
-                            child: Center(
-                                child: CustomText(
-                                    text: "Mobile Number",
-                                    color: index == 0
-                                        ? AppColors.blackColor
-                                        : AppColors.whitColor,
-                                    size: 12.5.sp,
-                                    fontWeight: index == 0
-                                        ? FontWeight.w400
-                                        : FontWeight.w600)),
-                          ),
-                        ),
-                      ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    CustomText(
+                      text: 'Start 7 days Free Trial',
+                      size: 24.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
-                  ),
-                  SizedBox(
-                    height: 25.h,
-                  ),
-                  index == 0
-                      ? Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 40.w),
-                          child: SizedBox(
-                            height: 44.h,
-                            width: MediaQuery.of(context).size.width,
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                  hintText: 'Enter Email',
-                                  contentPadding:
-                                      EdgeInsets.only(top: 10.h, left: 10.w),
-                                  border: OutlineInputBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(5.sp))),
+                    Container(
+                      width: 220.w,
+                      margin:const EdgeInsets.only(top: 30),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25.sp),
+                          border: Border.all()),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                index = 0;
+                              });
+                            },
+                            child: Container(
+                              height: 46.h,
+                              width: 100.w,
+                              decoration: BoxDecoration(
+                                  color: index == 1
+                                      ? Colors.white
+                                      : AppColors.secondaryColor,
+                                  borderRadius: BorderRadius.circular(30.sp)),
+                              child: Center(
+                                  child: CustomText(
+                                      text: "Email",
+                                      color: index == 1
+                                          ? AppColors.blackColor
+                                          : AppColors.whitColor,
+                                      size: 12.5.sp,
+                                      fontWeight: index == 1
+                                          ? FontWeight.w400
+                                          : FontWeight.w600)),
                             ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                index = 1;
+                              });
+                            },
+                            child: Container(
+                              height: 46.h,
+                              width: 100.w,
+                              decoration: BoxDecoration(
+                                  color: index == 0
+                                      ? Colors.white
+                                      : AppColors.primaryColor,
+                                  borderRadius: BorderRadius.circular(30.sp)),
+                              child: Center(
+                                  child: CustomText(
+                                      text: "Mobile Number",
+                                      color: index == 0
+                                          ? AppColors.blackColor
+                                          : AppColors.whitColor,
+                                      size: 12.5.sp,
+                                      fontWeight: index == 0
+                                          ? FontWeight.w400
+                                          : FontWeight.w600)),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    index == 0
+                        ? Container(
+                          height: 44.h,
+                          width: MediaQuery.of(context).size.width,
+                          padding: EdgeInsets.symmetric(horizontal: 30.w),
+                          margin: const EdgeInsets.only(top: 30),
+
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                                hintText: 'Enter Email',
+                                contentPadding:
+                                EdgeInsets.only(top: 10.h, left: 10.w),
+                                border: OutlineInputBorder(
+                                    borderRadius:
+                                    BorderRadius.circular(5.sp))),
                           ),
                         )
-                      : Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 40.w),
-                          child: Container(
-                            height: 44.h,
-                            width: MediaQuery.of(context).size.width,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black45),
-                                borderRadius: BorderRadius.circular(5.sp)),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10.w),
-                              child: Row(
-                                children: [
-                                  CustomText(
-                                    text: "+92",
-                                  ),
-                                  SizedBox(
-                                    width: 7.w,
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      height: 50.h,
-                                      child: TextFormField(
-                                        decoration: InputDecoration(
-                                            border: InputBorder.none,
-                                            hintText: '3060164133'),
-                                      ),
+                        : Container(
+                          height: 44.h,
+                          padding: EdgeInsets.symmetric(horizontal: 30.w),
+                          margin:const EdgeInsets.only(top: 30),
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black45),
+                              borderRadius: BorderRadius.circular(5.sp)),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10.w),
+                            child: Row(
+                              children: [
+                                const CustomText(
+                                  text: "+92",
+                                ),
+                                SizedBox(
+                                  width: 7.w,
+                                ),
+                                Expanded(
+                                  child: SizedBox(
+                                    height: 50.h,
+                                    child: TextFormField(
+                                      decoration: const InputDecoration(
+                                          border: InputBorder.none,
+                                          hintText: '3060164133'),
                                     ),
-                                  )
-                                ],
-                              ),
+                                  ),
+                                )
+                              ],
                             ),
                           ),
                         ),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          CupertinoPageRoute(
-                            builder: (context) => CreatePasswordScreen(),
-                          ));
-                    },
-                    child: CustomButtonClick(
-                      height: 40.h,
-                      width: 180.w,
-                      decoration: BoxDecoration(
-                          color: AppColors.primaryColor,
-                          borderRadius: BorderRadius.circular(2.sp)),
-                      child: Center(
-                        child: CustomText(
-                          text: 'Create Account',
-                          color: AppColors.whitColor,
-                          size: 16.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.w),
-                    child: Divider(
-                      thickness: 1.5.sp,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CustomText(
-                        text: 'Already a Member?',
-                        size: 18.sp,
-                      ),
-                      GestureDetector(
+                    Container(
+                      margin: const EdgeInsets.only(top: 30),
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginScreen(),
+                              CupertinoPageRoute(
+                                builder: (context) =>const CreatePasswordScreen(),
                               ));
                         },
-                        child: CustomText(
-                          text: " Login in",
-                          size: 16.sp,
-                          color: AppColors.secondaryColor,
+                        child: CustomButtonClick(
+                          height: 40.h,
+                          width: 180.w,
+                          decoration: BoxDecoration(
+                              color: AppColors.primaryColor,
+                              borderRadius: BorderRadius.circular(2.sp)),
+                          child: Center(
+                            child: CustomText(
+                              text: 'Create Account',
+                              color: AppColors.whitColor,
+                              size: 16.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
                         ),
-                      )
-                    ],
-                  )
-                ],
-              ),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 24.w),
+                      child: Divider(
+                        thickness: 1.5.sp,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 24.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomText(
+                            text: 'Already a Member?',
+                            size: 18.sp,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>const LoginScreen(),
+                                  ));
+                            },
+                            child: CustomText(
+                              text: " Login in",
+                              size: 16.sp,
+                              color: AppColors.secondaryColor,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                )
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

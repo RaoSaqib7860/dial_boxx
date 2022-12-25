@@ -69,7 +69,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                       width: 220.w,
                       margin:const EdgeInsets.only(top: 30),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25.sp),
+                          borderRadius: BorderRadius.circular(30.sp),
                           border: Border.all()),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -150,33 +150,30 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         : Container(
                           height: 44.h,
                           padding: EdgeInsets.symmetric(horizontal: 30.w),
-                          margin:const EdgeInsets.only(top: 30),
+                          margin:const EdgeInsets.only(top: 30,left: 30,right: 30),
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.black45),
                               borderRadius: BorderRadius.circular(5.sp)),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10.w),
-                            child: Row(
-                              children: [
-                                const CustomText(
-                                  text: "+92",
-                                ),
-                                SizedBox(
-                                  width: 7.w,
-                                ),
-                                Expanded(
-                                  child: SizedBox(
-                                    height: 50.h,
-                                    child: TextFormField(
-                                      decoration: const InputDecoration(
-                                          border: InputBorder.none,
-                                          hintText: '3060164133'),
-                                    ),
+                          child: Row(
+                            children: [
+                              const CustomText(
+                                text: "+92",
+                              ),
+                              SizedBox(
+                                width: 7.w,
+                              ),
+                              Expanded(
+                                child: SizedBox(
+                                  height: 50.h,
+                                  child: TextFormField(
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText: '3060164133'),
                                   ),
-                                )
-                              ],
-                            ),
+                                ),
+                              )
+                            ],
                           ),
                         ),
                     Container(

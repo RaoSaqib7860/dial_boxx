@@ -98,215 +98,217 @@ class _AddPaymentMethodScreenState extends State<AddPaymentMethodScreen> with Ti
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15.w),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CustomText(
-                            text: "Dialboxx Pay",
-                            size: 16.sp,
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.blackColor,
-                          ),
-                          CustomButtonClick(
-                            height: 23.h,
-                            width: 115.w,
-                            decoration: BoxDecoration(color: AppColors.primaryColor, borderRadius: BorderRadius.circular(2.sp)),
-                            child: Center(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomText(
+                              text: "Dialboxx Pay",
+                              size: 16.sp,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.blackColor,
+                            ),
+                            CustomButtonClick(
+                              height: 23.h,
+                              width: 115.w,
+                              decoration: BoxDecoration(color: AppColors.primaryColor, borderRadius: BorderRadius.circular(2.sp)),
+                              child: Center(
+                                child: CustomText(
+                                  text: "HOW IT WORKS",
+                                  fontWeight: FontWeight.w600,
+                                  size: 12.sp,
+                                  color: AppColors.whitColor,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 4.h,
+                        ),
+                        Divider(
+                          thickness: 2.0,
+                        ),
+                        SizedBox(
+                          height: 4.h,
+                        ),
+                        Row(
+                          children: [
+                            CustomText(
+                              text: "COD",
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.blackColor,
+                              size: 14.sp,
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              width: 220.w,
                               child: CustomText(
-                                text: "HOW IT WORKS",
-                                fontWeight: FontWeight.w600,
+                                text: "Activate COD to start accepting cash on Delivery",
                                 size: 12.sp,
-                                color: AppColors.whitColor,
+                                fontWeight: FontWeight.w400,
                               ),
                             ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Divider(
-                        thickness: 2.0,
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Row(
-                        children: [
-                          CustomText(
-                            text: "COD",
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.blackColor,
-                            size: 14.sp,
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            width: 220.w,
+                            Container(
+                              height: 34.h,
+                              child: FlutterSwitch(
+                                width: 55.0.w,
+                                height: 30.0.h,
+                                valueFontSize: 15.0,
+                                toggleSize: 30.0,
+                                padding: 0.4,
+                                activeColor: AppColors.greenColor,
+                                activeToggleColor: AppColors.whitColor,
+                                activeText: '',
+                                activeTextColor: Colors.black54,
+                                inactiveText: '',
+                                value: bootomsheetstatus,
+                                borderRadius: 30.0.sp,
+                                showOnOff: true,
+                                onToggle: (val) {
+                                  setState(() {
+                                    bootomsheetstatus = val;
+                                  });
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 6.h,
+                        ),
+                        Divider(
+                          thickness: 2.0,
+                        ),
+                        SizedBox(
+                          height: 6.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomText(
+                              text: "HBL Konnect",
+                              size: 14.sp,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.blackColor,
+                            ),
+                            CustomButtonClick(
+                              height: 25.h,
+                              width: 75.w,
+                              decoration: BoxDecoration(color: AppColors.primaryColor, borderRadius: BorderRadius.circular(2.sp)),
+                              child: Center(
+                                child: CustomText(
+                                  text: "Set Up",
+                                  fontWeight: FontWeight.w600,
+                                  size: 12.sp,
+                                  color: AppColors.whitColor,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 6.h,
+                        ),
+                        Container(alignment: Alignment.centerLeft, child: Image.asset('assets/images/hbl-logo.png')),
+                        SizedBox(
+                          height: 6.h,
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.5,
                             child: CustomText(
-                              text: "Activate COD to start accepting cash on Delivery",
+                              text: "Set up your pay out Method to take online pay Method directly into your bank account",
                               size: 12.sp,
                               fontWeight: FontWeight.w400,
+                              textAlign: TextAlign.start,
+                              color: AppColors.blackColor,
                             ),
-                          ),
-                          Container(
-                            height: 34.h,
-                            child: FlutterSwitch(
-                              width: 55.0.w,
-                              height: 30.0.h,
-                              valueFontSize: 15.0,
-                              toggleSize: 30.0,
-                              padding: 0.4,
-                              activeColor: AppColors.greenColor,
-                              activeToggleColor: AppColors.whitColor,
-                              activeText: '',
-                              activeTextColor: Colors.black54,
-                              inactiveText: '',
-                              value: bootomsheetstatus,
-                              borderRadius: 30.0.sp,
-                              showOnOff: true,
-                              onToggle: (val) {
-                                setState(() {
-                                  bootomsheetstatus = val;
-                                });
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      Divider(
-                        thickness: 2.0,
-                      ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CustomText(
-                            text: "HBL Konnect",
-                            size: 14.sp,
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.blackColor,
-                          ),
-                          CustomButtonClick(
-                            height: 25.h,
-                            width: 75.w,
-                            decoration: BoxDecoration(color: AppColors.primaryColor, borderRadius: BorderRadius.circular(2.sp)),
-                            child: Center(
-                              child: CustomText(
-                                text: "Set Up",
-                                fontWeight: FontWeight.w600,
-                                size: 12.sp,
-                                color: AppColors.whitColor,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      Container(alignment: Alignment.centerLeft, child: Image.asset('assets/images/hbl-logo.png')),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      Container(
-                        alignment: Alignment.centerLeft,
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          child: CustomText(
-                            text: "Set up your pay out Method to take online pay Method directly into your bank account",
-                            size: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            textAlign: TextAlign.start,
-                            color: AppColors.blackColor,
                           ),
                         ),
-                      ),
-                      Divider(
-                        thickness: 2.0,
-                      ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CustomText(
-                            text: "Qisst Pay",
-                            size: 14.sp,
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.blackColor,
-                          ),
-                          CustomButtonClick(
-                            height: 25.h,
-                            width: 75.w,
-                            decoration: BoxDecoration(color: AppColors.primaryColor, borderRadius: BorderRadius.circular(2.sp)),
-                            child: Center(
-                              child: CustomText(
-                                text: "Set Up",
-                                fontWeight: FontWeight.w600,
-                                size: 12.sp,
-                                color: AppColors.whitColor,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                      Container(alignment: Alignment.centerLeft, child: SvgPicture.asset('assets/svg/qist_pay.svg')),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Container(
-                        alignment: Alignment.centerLeft,
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          child: CustomText(
-                            text: "Allow your Customer to make the purchase in installement & increase your conversation rate by 10x",
-                            size: 12.sp,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.blackColor,
-                          ),
+                        Divider(
+                          thickness: 2.0,
                         ),
-                      ),
-                      SizedBox(
-                        height: 30.h,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          showModelBottomSheet();
-                        },
-                        child: CustomButtonClick(
-                          height: 45.h,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            color: AppColors.primaryColor,
-                            borderRadius: BorderRadius.circular(2.sp),
-                          ),
-                          child: Center(
-                            child: CustomText(
-                              text: "Add payout Method",
+                        SizedBox(
+                          height: 6.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomText(
+                              text: "Qisst Pay",
                               size: 14.sp,
-                              color: AppColors.whitColor,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.blackColor,
+                            ),
+                            CustomButtonClick(
+                              height: 25.h,
+                              width: 75.w,
+                              decoration: BoxDecoration(color: AppColors.primaryColor, borderRadius: BorderRadius.circular(2.sp)),
+                              child: Center(
+                                child: CustomText(
+                                  text: "Set Up",
+                                  fontWeight: FontWeight.w600,
+                                  size: 12.sp,
+                                  color: AppColors.whitColor,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        Container(alignment: Alignment.centerLeft, child: SvgPicture.asset('assets/svg/qist_pay.svg')),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            child: CustomText(
+                              text: "Allow your Customer to make the purchase in installement & increase your conversation rate by 10x",
+                              size: 12.sp,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.blackColor,
                             ),
                           ),
                         ),
-                      )
-                    ],
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            showModelBottomSheet();
+                          },
+                          child: CustomButtonClick(
+                            height: 45.h,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                              color: AppColors.primaryColor,
+                              borderRadius: BorderRadius.circular(2.sp),
+                            ),
+                            child: Center(
+                              child: CustomText(
+                                text: "Add payout Method",
+                                size: 14.sp,
+                                color: AppColors.whitColor,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Padding(

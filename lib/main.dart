@@ -24,6 +24,7 @@ import 'package:dialbox_seller/view/custom_widgets/persistant_bottom_sheet_scree
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:sizer/sizer.dart';
 
 void main() {
   runApp(DevicePreview(
@@ -39,21 +40,23 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context, child) {
-        return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          useInheritedMediaQuery: true,
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home:  SplashScreen(),
-          // const MyHomePage(title: 'Flutter Demo Home Page'),
-        );
-      },
-    );
+    return Sizer(builder: (context, orientation, deviceType) {
+      return ScreenUtilInit(
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            useInheritedMediaQuery: true,
+            title: 'Flutter Demo',
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+            ),
+            home:  SplashScreen(),
+            // const MyHomePage(title: 'Flutter Demo Home Page'),
+          );
+        },
+      );
+    },);
   }
 }

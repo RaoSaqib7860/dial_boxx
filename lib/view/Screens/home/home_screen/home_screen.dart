@@ -230,11 +230,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Icon(
-                                    Icons.whatsapp,
-                                    color: AppColors.whitColor,
-                                    size: 22.sp,
-                                  ),
+                                  // Icon(
+                                  //   Icons.whatsapp,
+                                  //   color: AppColors.whitColor,
+                                  //   size: 22.sp,
+                                  // ),
                                   CustomText(
                                     text: "Share",
                                     size: 14.sp,

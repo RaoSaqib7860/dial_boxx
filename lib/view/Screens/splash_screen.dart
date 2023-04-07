@@ -1,5 +1,5 @@
 import 'package:dialbox_seller/services/colors/app_colors.dart';
-import 'package:dialbox_seller/view/Screens/create_account_screen.dart';
+import 'package:dialbox_seller/view/Screens/authentication/create_account/create_account_screen.dart';
 import 'package:dialbox_seller/view/custom_widgets/custom_widgets.dart';
 import 'package:dialbox_seller/view/Screens/create_password_screen.dart';
 import 'package:flutter/material.dart';

@@ -24,9 +24,10 @@ import 'package:dialbox_seller/view/custom_widgets/persistant_bottom_sheet_scree
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:sizer/sizer.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+void main()async {
+  await GetStorage.init();
   runApp(DevicePreview(
       enabled: true,
       builder: (context) {

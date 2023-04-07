@@ -1030,6 +1030,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.only(top: 20.h),
                       child: CustomText(
                         text: 'Add Product',
+                        color: Colors.blue,
                         size: 14.sp,
                       ),
                     ),
@@ -1040,6 +1041,22 @@ class _HomeScreenState extends State<HomeScreen> {
                           text:
                               "Set up your first product by adding the product name and images",
                           size: 13.sp,
+                        ),
+                        SizedBox(height: 8.h,),
+                        CustomButtonClick(
+                          height: 35.h,
+                          width: 130.w,
+                          decoration: BoxDecoration(
+                              color: AppColors.primaryColor,
+                              borderRadius: BorderRadius.circular(2.sp)),
+                          child: Center(
+                            child: CustomText(
+                              text: 'Add Product',
+                              color: AppColors.whitColor,
+                              size: 16.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -1052,21 +1069,37 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.only(top: 20.h),
                       child: CustomText(
                         text: 'Set up payment method',
+                        color: Colors.blue,
                         size: 14.sp,
                       ),
                     ),
                     subtitle: Padding(
                       padding: const EdgeInsets.only(bottom:12.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomText(
-                            text:
-                                "Select how your customer will make payment for a purchase",
-                            size: 13.sp,
+                      child:Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomText(
+                          text:
+                              "Select how your customer will make payment for a purchase",
+                          size: 13.sp,
+                        ),
+                        SizedBox(height: 8.h,),
+                        CustomButtonClick(
+                          height: 35.h,
+                          width: 130.w,
+                          decoration: BoxDecoration(
+                              color: AppColors.primaryColor,
+                              borderRadius: BorderRadius.circular(2.sp)),
+                          child: Center(
+                            child: CustomText(
+                              text: 'Set up payment',
+                              color: AppColors.whitColor,
+                              size: 16.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],),
                     ),
                     content: SizedBox(),
                   ),

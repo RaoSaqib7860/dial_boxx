@@ -10,6 +10,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:kf_drawer/kf_drawer.dart';
 
+import '../../chose_store_categories/chose_store_categorie.dart';
+
 class AllOrdersScreen extends KFDrawerContent {
   AllOrdersScreen({Key? key});
 
@@ -28,9 +30,12 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        Get.to(ChoseStoreCategories());
+      }),
       appBar: CustomAppBar(
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.menu,
             color: AppColors.primaryColor,
           ),

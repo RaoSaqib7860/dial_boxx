@@ -58,748 +58,755 @@ class _FreeShippingDiscountScreenState
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            HeaderContainer(
-              text: "Discount Coupon",
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomText(
-                    text: widget.flateDiscount == 1
-                        ? "Free shipping"
-                        : widget.flateDiscount == 2
-                            ? "Flat Discount"
-                            : "Percentage Discount",
-                    size: 14.sp,
-                    color: AppColors.primaryColor,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Container(
-                    height: 205.h,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      color: AppColors.whitColor,
-                      boxShadow: [
-                        BoxShadow(
-                            blurRadius: 2,
-                            spreadRadius: 2,
-                            color: Colors.black.withOpacity(0.12))
-                      ],
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 15.h, left: 15.w),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              CustomText(
-                                text: "Create Coupon",
-                                size: 16.sp,
-                                color: AppColors.blackColor,
-                                fontWeight: FontWeight.w500,
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 15.h,
-                          ),
-                          CustomText(
-                            text: "Coupon code*",
-                            size: 12.sp,
-                            color: AppColors.blackColor,
-                            fontWeight: FontWeight.w400,
-                          ),
-                          Container(
-                            height: 35.h,
-                            width: 260.w,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xff707070))),
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                  contentPadding:
-                                      EdgeInsets.only(left: 10.w, bottom: 17.h),
-                                  hintText: 'Enter coupon code',
-                                  border: InputBorder.none,
-                                  hintStyle: TextStyle(
-                                      color: Color(0xffA1A1A1),
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400)),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15.h,
-                          ),
-                          CustomText(
-                            text: "User per customer*",
-                            size: 12.sp,
-                            color: AppColors.blackColor,
-                            fontWeight: FontWeight.w400,
-                          ),
-                          Container(
-                            height: 35.h,
-                            width: 260.w,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xff707070))),
-                            child: DropdownButton(
-                              hint: Padding(
-                                padding: EdgeInsets.only(left: 10.w),
-                                child: CustomText(
-                                  text: "Select user per customer",
-                                  size: 14.sp,
-                                  color: Color(0xffA1A1A1),
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              isExpanded: true,
-                              underline: SizedBox(),
-                              icon: Icon(Icons.keyboard_arrow_down_outlined,
-                                  size: 28.sp, color: Colors.black),
-                              value: _selectedLocation,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  _selectedLocation = newValue;
-                                });
-                              },
-                              items: _locations.map((location) {
-                                return DropdownMenuItem(
-                                  value: location,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(left: 10.w),
-                                    child: CustomText(
-                                        text: location,
-                                        size: 14.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: const Color(0xffA1A1A1)),
-                                  ),
-                                );
-                              }).toList(),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  Container(
-                    height: 205.h,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      color: AppColors.whitColor,
-                      boxShadow: [
-                        BoxShadow(
-                            blurRadius: 2,
-                            spreadRadius: 2,
-                            color: Colors.black.withOpacity(0.12))
-                      ],
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsets.only(top: 15.h, left: 15.w, right: 15.w),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomText(
-                            text: "Coupon details",
-                            size: 16.sp,
-                            color: AppColors.blackColor,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          SizedBox(
-                            height: 15.h,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  CustomText(
-                                    text: functionalityOpen
-                                        ? widget.flateDiscount == 1
-                                            ? "amount*"
-                                            : widget.flateDiscount == 2
-                                                ? "Discount amount*"
-                                                : widget.flateDiscount == 3
-                                                    ? "Percent*"
-                                                    : ""
-                                        : "Percent*",
-                                    size: 12.sp,
-                                    color: AppColors.blackColor,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                  Container(
-                                    height: 35.h,
-                                    width: 140.w,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color: Color(0xff707070))),
-                                    child: TextFormField(
-                                      decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.only(
-                                              left: 10.w, bottom: 17.h),
-                                          hintText: widget.flateDiscount == 3
-                                              ? "%"
-                                              : 'Rs.',
-                                          border: InputBorder.none,
-                                          hintStyle: TextStyle(
-                                              color: Color(0xffA1A1A1),
-                                              fontSize: 14.sp,
-                                              fontWeight: FontWeight.w400)),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  CustomText(
-                                    text: "Minimum order value*",
-                                    size: 12.sp,
-                                    color: AppColors.blackColor,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                  Container(
-                                    height: 35.h,
-                                    width: 140.w,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color: Color(0xff707070))),
-                                    child: TextFormField(
-                                      decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.only(
-                                              left: 10.w, bottom: 17.h),
-                                          hintText: 'Rs.',
-                                          border: InputBorder.none,
-                                          hintStyle: TextStyle(
-                                              color: Color(0xffA1A1A1),
-                                              fontSize: 14.sp,
-                                              fontWeight: FontWeight.w400)),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            
-                            ],
-                          ),
-                          SizedBox(
-                            height: 15.h,
-                          ),
-                          CustomText(
-                            text: "User per customer*",
-                            size: 12.sp,
-                            color: AppColors.blackColor,
-                            fontWeight: FontWeight.w400,
-                          ),
-                          Container(
-                            height: 35.h,
-                            width: 260.w,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xff707070))),
-                            child: DropdownButton(
-                              hint: Padding(
-                                padding: EdgeInsets.only(left: 10.w),
-                                child: CustomText(
-                                  text: "Rs.",
-                                  size: 14.sp,
-                                  color: Color(0xffA1A1A1),
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              isExpanded: true,
-                              underline: SizedBox(),
-                              icon: Icon(Icons.keyboard_arrow_down_outlined,
-                                  size: 28.sp, color: Colors.black),
-                              value: _selectedamount,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  _selectedamount = newValue;
-                                });
-                              },
-                              items: _amountlocations.map((location) {
-                                return DropdownMenuItem(
-                                  value: location,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(left: 10.w),
-                                    child: CustomText(
-                                        text: location,
-                                        size: 14.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: const Color(0xffA1A1A1)),
-                                  ),
-                                );
-                              }).toList(),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15.h,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        functionalityOpen = !functionalityOpen;
-                      });
-                    },
-                    child: Container(
-                      height: functionalityOpen ? 45.h : 120.h,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        color: AppColors.whitColor,
-                        boxShadow: [
-                          BoxShadow(
-                              blurRadius: 2,
-                              spreadRadius: 2,
-                              color: AppColors.blackColor.withOpacity(0.12))
-                        ],
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 10.w, vertical: 8.h),
-                        child: Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                CustomText(
-                                  text: "Coupon functionality",
-                                  size: 16.sp,
-                                  color: AppColors.blackColor,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                Icon(
-                                  functionalityOpen
-                                      ? Icons.keyboard_arrow_down_rounded
-                                      : Icons.keyboard_arrow_up_outlined,
-                                  color: Colors.black,
-                                  size: 28.sp,
-                                )
-                              ],
-                            ),
-                            !functionalityOpen
-                                ? Column(
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          CustomText(
-                                            text: "Show coupon to customers?",
-                                          ),
-                                          Container(
-                                            height: 34.h,
-                                            child: FlutterSwitch(
-                                              width: 55.0.w,
-                                              height: 30.0.h,
-                                              valueFontSize: 15.0,
-                                              toggleSize: 30.0,
-                                              padding: 0.4,
-                                              activeColor: AppColors.greenColor,
-                                              activeToggleColor:
-                                                  AppColors.whitColor,
-                                              activeText: '',
-                                              activeTextColor: Colors.black54,
-                                              inactiveText: '',
-                                              value: customerCoupons,
-                                              borderRadius: 30.0.sp,
-                                              showOnOff: true,
-                                              onToggle: (val) {
-                                                setState(() {
-                                                  customerCoupons = val;
-                                                });
-                                              },
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 5.h,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          CustomText(
-                                            text:
-                                                "Valid only for online payments?",
-                                          ),
-                                          Container(
-                                            height: 34.h,
-                                            child: FlutterSwitch(
-                                              width: 55.0.w,
-                                              height: 30.0.h,
-                                              valueFontSize: 15.0,
-                                              toggleSize: 30.0,
-                                              padding: 0.4,
-                                              activeColor: AppColors.greenColor,
-                                              activeToggleColor:
-                                                  AppColors.whitColor,
-                                              activeText: '',
-                                              activeTextColor: Colors.black54,
-                                              inactiveText: '',
-                                              value: onlinePayments,
-                                              borderRadius: 30.0.sp,
-                                              showOnOff: true,
-                                              onToggle: (val) {
-                                                setState(() {
-                                                  onlinePayments = val;
-                                                });
-                                              },
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  )
-                                : SizedBox(),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15.h,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        couponvalidity = !couponvalidity;
-                        functionalityOpen = true;
-                      });
-                    },
-                    child: Container(
-                      height: couponvalidity ? 45.h : 210.h,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        color: AppColors.whitColor,
-                        boxShadow: [
-                          BoxShadow(
-                              blurRadius: 2,
-                              spreadRadius: 2,
-                              color: AppColors.blackColor.withOpacity(0.12))
-                        ],
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 10.w, vertical: 8.h),
-                        child: Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                CustomText(
-                                  text: "Coupon Validity",
-                                  size: 16.sp,
-                                  color: AppColors.blackColor,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                Icon(
-                                  couponvalidity
-                                      ? Icons.keyboard_arrow_down_rounded
-                                      : Icons.keyboard_arrow_up_outlined,
-                                  color: Colors.black,
-                                  size: 28.sp,
-                                )
-                              ],
-                            ),
-                            !couponvalidity
-                                ? Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              CustomText(
-                                                text: "From",
-                                                size: 12.sp,
-                                                color: AppColors.blackColor,
-                                                fontWeight: FontWeight.w400,
-                                              ),
-                                              Container(
-                                                height: 35.h,
-                                                width: 140.w,
-                                                decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                        color:
-                                                            Color(0xff707070))),
-                                                child: TextFormField(
-                                                  decoration: InputDecoration(
-                                                      contentPadding:
-                                                          EdgeInsets.only(
-                                                              left: 10.w,
-                                                              bottom: 17.h),
-                                                      hintText: 'Start date',
-                                                      suffixIcon: Padding(
-                                                        padding:
-                                                            EdgeInsets.only(
-                                                                left: 10.w),
-                                                        child: Icon(
-                                                          Icons
-                                                              .keyboard_arrow_down_outlined,
-                                                          color: Colors.black,
-                                                          size: 26.sp,
-                                                        ),
-                                                      ),
-                                                      border: InputBorder.none,
-                                                      hintStyle: TextStyle(
-                                                          color:
-                                                              Color(0xffA1A1A1),
-                                                          fontSize: 14.sp,
-                                                          fontWeight:
-                                                              FontWeight.w400)),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              CustomText(
-                                                text: "Time",
-                                                size: 12.sp,
-                                                color: AppColors.blackColor,
-                                                fontWeight: FontWeight.w400,
-                                              ),
-                                              Container(
-                                                height: 35.h,
-                                                width: 140.w,
-                                                decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                        color:
-                                                            Color(0xff707070))),
-                                                child: TextFormField(
-                                                  decoration: InputDecoration(
-                                                      contentPadding:
-                                                          EdgeInsets.only(
-                                                              left: 10.w,
-                                                              bottom: 17.h),
-                                                      hintText: 'Start Time',
-                                                      suffixIcon: Padding(
-                                                        padding:
-                                                            EdgeInsets.only(
-                                                                left: 10.w),
-                                                        child: Icon(
-                                                          Icons
-                                                              .keyboard_arrow_down_outlined,
-                                                          color: Colors.black,
-                                                          size: 26.sp,
-                                                        ),
-                                                      ),
-                                                      border: InputBorder.none,
-                                                      hintStyle: TextStyle(
-                                                          color:
-                                                              Color(0xffA1A1A1),
-                                                          fontSize: 14.sp,
-                                                          fontWeight:
-                                                              FontWeight.w400)),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Checkbox(
-                                            value: setDatevalue,
-                                            onChanged: (bool? value) {
-                                              setState(() {
-                                                this.setDatevalue = value!;
-                                              });
-                                            },
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  CustomText(
-                                                    text: "To",
-                                                    size: 12.sp,
-                                                    color: AppColors.blackColor,
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
-                                                  Container(
-                                                    height: 35.h,
-                                                    width: 140.w,
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xff707070))),
-                                                    child: TextFormField(
-                                                      decoration:
-                                                          InputDecoration(
-                                                              contentPadding:
-                                                                  EdgeInsets.only(
-                                                                      left:
-                                                                          10.w,
-                                                                      bottom:
-                                                                          17.h),
-                                                              hintText:
-                                                                  'Start date',
-                                                              suffixIcon:
-                                                                  Padding(
-                                                                padding: EdgeInsets
-                                                                    .only(
-                                                                        left: 10
-                                                                            .w),
-                                                                child: Icon(
-                                                                  Icons
-                                                                      .keyboard_arrow_down_outlined,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  size: 26.sp,
-                                                                ),
-                                                              ),
-                                                              border:
-                                                                  InputBorder
-                                                                      .none,
-                                                              hintStyle: TextStyle(
-                                                                  color: Color(
-                                                                      0xffA1A1A1),
-                                                                  fontSize:
-                                                                      14.sp,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400)),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  CustomText(
-                                                    text: "Time",
-                                                    size: 12.sp,
-                                                    color: AppColors.blackColor,
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
-                                                  Container(
-                                                    height: 35.h,
-                                                    width: 140.w,
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: Color(
-                                                                0xff707070))),
-                                                    child: TextFormField(
-                                                      decoration:
-                                                          InputDecoration(
-                                                              contentPadding:
-                                                                  EdgeInsets.only(
-                                                                      left:
-                                                                          10.w,
-                                                                      bottom:
-                                                                          17.h),
-                                                              hintText:
-                                                                  'Start Time',
-                                                              suffixIcon:
-                                                                  Padding(
-                                                                padding: EdgeInsets
-                                                                    .only(
-                                                                        left: 10
-                                                                            .w),
-                                                                child: Icon(
-                                                                  Icons
-                                                                      .keyboard_arrow_down_outlined,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  size: 26.sp,
-                                                                ),
-                                                              ),
-                                                              border:
-                                                                  InputBorder
-                                                                      .none,
-                                                              hintStyle: TextStyle(
-                                                                  color: Color(
-                                                                      0xffA1A1A1),
-                                                                  fontSize:
-                                                                      14.sp,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400)),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  )
-                                : SizedBox(),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              HeaderContainer(
+                text: "Discount Coupon",
               ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.to(() => CouponCodeScreen());
-              },
-              child: Padding(
+              SizedBox(
+                height: 10.h,
+              ),
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: CustomButtonClick(
-                  height: 45.h,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      color: AppColors.primaryColor,
-                      borderRadius: BorderRadius.circular(4.sp)),
-                  child: Center(
-                    child: CustomText(
-                      text: "Create a coupon",
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomText(
+                      text: widget.flateDiscount == 1
+                          ? "Free shipping"
+                          : widget.flateDiscount == 2
+                              ? "Flat Discount"
+                              : "Percentage Discount",
                       size: 14.sp,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.whitColor,
+                      color: AppColors.primaryColor,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    Container(
+                      height: 205.h,
+                      // width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: AppColors.whitColor,
+                        boxShadow: [
+                          BoxShadow(
+                              blurRadius: 2,
+                              spreadRadius: 2,
+                              color: Colors.black.withOpacity(0.12))
+                        ],
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 15.h, left: 15.w),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                CustomText(
+                                  text: "Create Coupon",
+                                  size: 16.sp,
+                                  color: AppColors.blackColor,
+                                  fontWeight: FontWeight.w500,
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                            CustomText(
+                              text: "Coupon code*",
+                              size: 12.sp,
+                              color: AppColors.blackColor,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            Container(
+                              height: 35.h,
+                              width: MediaQuery.of(context).size.width*0.65,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Color(0xff707070))),
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                    contentPadding:
+                                        EdgeInsets.only(left: 10.w, bottom: 17.h),
+                                    hintText: 'Enter coupon code',
+                                    border: InputBorder.none,
+                                    hintStyle: TextStyle(
+                                        color: Color(0xffA1A1A1),
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w400)),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                            CustomText(
+                              text: "User per customer*",
+                              size: 12.sp,
+                              color: AppColors.blackColor,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            Container(
+                              height: 35.h,
+                              width: MediaQuery.of(context).size.width*0.65,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Color(0xff707070))),
+                              child: DropdownButton(
+                                hint: Padding(
+                                  padding: EdgeInsets.only(left: 10.w),
+                                  child: CustomText(
+                                    text: "Select user per customer",
+                                    size: 14.sp,
+                                    color: Color(0xffA1A1A1),
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                isExpanded: true,
+                                underline: SizedBox(),
+                                icon: Icon(Icons.keyboard_arrow_down_outlined,
+                                    size: 28.sp, color: Colors.black),
+                                value: _selectedLocation,
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    _selectedLocation = newValue;
+                                  });
+                                },
+                                items: _locations.map((location) {
+                                  return DropdownMenuItem(
+                                    value: location,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(left: 10.w),
+                                      child: CustomText(
+                                          text: location,
+                                          size: 14.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: const Color(0xffA1A1A1)),
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Container(
+                      height: 205.h,
+                      // width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: AppColors.whitColor,
+                        boxShadow: [
+                          BoxShadow(
+                              blurRadius: 2,
+                              spreadRadius: 2,
+                              color: Colors.black.withOpacity(0.12))
+                        ],
+                      ),
+                      child: Padding(
+                        padding:
+                            EdgeInsets.only(top: 15.h, left: 15.w, right: 15.w),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CustomText(
+                              text: "Coupon details",
+                              size: 16.sp,
+                              color: AppColors.blackColor,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    CustomText(
+                                      text: functionalityOpen
+                                          ? widget.flateDiscount == 1
+                                              ? "amount*"
+                                              : widget.flateDiscount == 2
+                                                  ? "Discount amount*"
+                                                  : widget.flateDiscount == 3
+                                                      ? "Percent*"
+                                                      : "Percent"
+                                          : "Percent*",
+                                      size: 12.sp,
+                                      color: AppColors.blackColor,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                    Container(
+                                      height: 35.h,
+                                      width: MediaQuery.of(context).size.width*0.35,
+
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Color(0xff707070))),
+                                      child: TextFormField(
+                                        decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.only(
+                                                left: 10.w, bottom: 17.h),
+                                            hintText: widget.flateDiscount == 3
+                                                ? "%"
+                                                : 'Rs.',
+                                            border: InputBorder.none,
+                                            hintStyle: TextStyle(
+                                                color: Color(0xffA1A1A1),
+                                                fontSize: 14.sp,
+                                                fontWeight: FontWeight.w400)),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    CustomText(
+                                      text: "Minimum order value*",
+                                      size: 12.sp,
+                                      color: AppColors.blackColor,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                    Container(
+                                      height: 35.h,
+                                      width: MediaQuery.of(context).size.width*0.35,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Color(0xff707070))),
+                                      child: TextFormField(
+                                        decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.only(
+                                                left: 10.w, bottom: 17.h),
+                                            hintText: 'Rs.',
+                                            border: InputBorder.none,
+                                            hintStyle: TextStyle(
+                                                color: Color(0xffA1A1A1),
+                                                fontSize: 14.sp,
+                                                fontWeight: FontWeight.w400)),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                            CustomText(
+                              text: "User per customer*",
+                              size: 12.sp,
+                              color: AppColors.blackColor,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            Container(
+                              height: 35.h,
+                              width: MediaQuery.of(context).size.width*0.65,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Color(0xff707070))),
+                              child: DropdownButton(
+                                hint: Padding(
+                                  padding: EdgeInsets.only(left: 10.w),
+                                  child: CustomText(
+                                    text: "Rs.",
+                                    size: 14.sp,
+                                    color: Color(0xffA1A1A1),
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                isExpanded: true,
+                                underline: SizedBox(),
+                                icon: Icon(Icons.keyboard_arrow_down_outlined,
+                                    size: 28.sp, color: Colors.black),
+                                value: _selectedamount,
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    _selectedamount = newValue;
+                                  });
+                                },
+                                items: _amountlocations.map((location) {
+                                  return DropdownMenuItem(
+                                    value: location,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(left: 10.w),
+                                      child: CustomText(
+                                          text: location,
+                                          size: 14.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: const Color(0xffA1A1A1)),
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15.h,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          functionalityOpen = !functionalityOpen;
+                        });
+                      },
+                      child: Container(
+                        height: functionalityOpen ? 45.h : 120.h,
+                        // width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: AppColors.whitColor,
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 2,
+                                spreadRadius: 2,
+                                color: AppColors.blackColor.withOpacity(0.12))
+                          ],
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.w, vertical: 8.h),
+                          child: Column(
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  CustomText(
+                                    text: "Coupon functionality",
+                                    size: 16.sp,
+                                    color: AppColors.blackColor,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  Icon(
+                                    functionalityOpen
+                                        ? Icons.keyboard_arrow_down_rounded
+                                        : Icons.keyboard_arrow_up_outlined,
+                                    color: Colors.black,
+                                    size: 28.sp,
+                                  )
+                                ],
+                              ),
+                              !functionalityOpen
+                                  ? Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            CustomText(
+                                              text: "Show coupon to customers?",
+                                            ),
+                                            Container(
+                                              height: 34.h,
+                                              child: FlutterSwitch(
+                                                width: 55.0.w,
+                                                height: 30.0.h,
+                                                valueFontSize: 15.0,
+                                                toggleSize: 30.0,
+                                                padding: 0.4,
+                                                activeColor: AppColors.greenColor,
+                                                activeToggleColor:
+                                                    AppColors.whitColor,
+                                                activeText: '',
+                                                activeTextColor: Colors.black54,
+                                                inactiveText: '',
+                                                value: customerCoupons,
+                                                borderRadius: 30.0.sp,
+                                                showOnOff: true,
+                                                onToggle: (val) {
+                                                  setState(() {
+                                                    customerCoupons = val;
+                                                  });
+                                                },
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 5.h,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            CustomText(
+                                              text:
+                                                  "Valid only for online payments?",
+                                            ),
+                                            Container(
+                                              height: 34.h,
+                                              child: FlutterSwitch(
+                                                width: 55.0.w,
+                                                height: 30.0.h,
+                                                valueFontSize: 15.0,
+                                                toggleSize: 30.0,
+                                                padding: 0.4,
+                                                activeColor: AppColors.greenColor,
+                                                activeToggleColor:
+                                                    AppColors.whitColor,
+                                                activeText: '',
+                                                activeTextColor: Colors.black54,
+                                                inactiveText: '',
+                                                value: onlinePayments,
+                                                borderRadius: 30.0.sp,
+                                                showOnOff: true,
+                                                onToggle: (val) {
+                                                  setState(() {
+                                                    onlinePayments = val;
+                                                  });
+                                                },
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    )
+                                  : SizedBox(),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15.h,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          couponvalidity = !couponvalidity;
+                          functionalityOpen = true;
+                        });
+                      },
+                      child: Container(
+                        height: couponvalidity ? 45.h : 140.h,
+                        // width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: AppColors.whitColor,
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 2,
+                                spreadRadius: 2,
+                                color: AppColors.blackColor.withOpacity(0.12))
+                          ],
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.w, vertical: 8.h),
+                          child: Column(
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  CustomText(
+                                    text: "Coupon Validity",
+                                    size: 16.sp,
+                                    color: AppColors.blackColor,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  Icon(
+                                    couponvalidity
+                                        ? Icons.keyboard_arrow_down_rounded
+                                        : Icons.keyboard_arrow_up_outlined,
+                                    color: Colors.black,
+                                    size: 28.sp,
+                                  )
+                                ],
+                              ),
+                              !couponvalidity
+                                  ? Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                CustomText(
+                                                  text: "From",
+                                                  size: 12.sp,
+                                                  color: AppColors.blackColor,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                                Container(
+                                                  height: 35.h,
+                                                  width: MediaQuery.of(context).size.width*0.35,
+                                                  decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                          color:
+                                                              Color(0xff707070))),
+                                                  child: TextFormField(
+                                                    decoration: InputDecoration(
+                                                        contentPadding:
+                                                            EdgeInsets.only(
+                                                                left: 10.w,
+                                                                bottom: 17.h),
+                                                        hintText: 'Start date',
+                                                        suffixIcon: Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 10.w),
+                                                          child: Icon(
+                                                            Icons
+                                                                .keyboard_arrow_down_outlined,
+                                                            color: Colors.black,
+                                                            size: 26.sp,
+                                                          ),
+                                                        ),
+                                                        border: InputBorder.none,
+                                                        hintStyle: TextStyle(
+                                                            color:
+                                                                Color(0xffA1A1A1),
+                                                            fontSize: 14.sp,
+                                                            fontWeight:
+                                                                FontWeight.w400)),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                CustomText(
+                                                  text: "Time",
+                                                  size: 12.sp,
+                                                  color: AppColors.blackColor,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                                Container(
+                                                  height: 35.h,
+                                                  width: MediaQuery.of(context).size.width*0.35,
+
+                                                  decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                          color:
+                                                              Color(0xff707070))),
+                                                  child: TextFormField(
+                                                    decoration: InputDecoration(
+                                                        contentPadding:
+                                                            EdgeInsets.only(
+                                                                left: 10.w,
+                                                                bottom: 17.h),
+                                                        hintText: 'Start Time',
+                                                        suffixIcon: Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 10.w),
+                                                          child: Icon(
+                                                            Icons
+                                                                .keyboard_arrow_down_outlined,
+                                                            color: Colors.black,
+                                                            size: 26.sp,
+                                                          ),
+                                                        ),
+                                                        border: InputBorder.none,
+                                                        hintStyle: TextStyle(
+                                                            color:
+                                                                Color(0xffA1A1A1),
+                                                            fontSize: 14.sp,
+                                                            fontWeight:
+                                                                FontWeight.w400)),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            CheckboxListTile(
+                                              title: CustomText(text:'Set an end date',size: 12,),
+                                              controlAffinity: ListTileControlAffinity.leading,
+                                              contentPadding: EdgeInsets.zero,
+                                              value: setDatevalue,
+                                              onChanged: (bool? value) {
+                                                setState(() {
+                                                  this.setDatevalue = value!;
+                                                });
+                                              },
+                                            ),
+                                           /* Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    CustomText(
+                                                      text: "To",
+                                                      size: 12.sp,
+                                                      color: AppColors.blackColor,
+                                                      fontWeight: FontWeight.w400,
+                                                    ),
+                                                    Container(
+                                                      height: 35.h,
+                                                      width: 140.w,
+                                                      decoration: BoxDecoration(
+                                                          border: Border.all(
+                                                              color: Color(
+                                                                  0xff707070))),
+                                                      child: TextFormField(
+                                                        decoration:
+                                                            InputDecoration(
+                                                                contentPadding:
+                                                                    EdgeInsets.only(
+                                                                        left:
+                                                                            10.w,
+                                                                        bottom:
+                                                                            17.h),
+                                                                hintText:
+                                                                    'Start date',
+                                                                suffixIcon:
+                                                                    Padding(
+                                                                  padding: EdgeInsets
+                                                                      .only(
+                                                                          left: 10
+                                                                              .w),
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .keyboard_arrow_down_outlined,
+                                                                    color: Colors
+                                                                        .black,
+                                                                    size: 26.sp,
+                                                                  ),
+                                                                ),
+                                                                border:
+                                                                    InputBorder
+                                                                        .none,
+                                                                hintStyle: TextStyle(
+                                                                    color: Color(
+                                                                        0xffA1A1A1),
+                                                                    fontSize:
+                                                                        14.sp,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400)),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    CustomText(
+                                                      text: "Time",
+                                                      size: 12.sp,
+                                                      color: AppColors.blackColor,
+                                                      fontWeight: FontWeight.w400,
+                                                    ),
+                                                    Container(
+                                                      height: 35.h,
+                                                      width: 140.w,
+                                                      decoration: BoxDecoration(
+                                                          border: Border.all(
+                                                              color: Color(
+                                                                  0xff707070))),
+                                                      child: TextFormField(
+                                                        decoration:
+                                                            InputDecoration(
+                                                                contentPadding:
+                                                                    EdgeInsets.only(
+                                                                        left:
+                                                                            10.w,
+                                                                        bottom:
+                                                                            17.h),
+                                                                hintText:
+                                                                    'Start Time',
+                                                                suffixIcon:
+                                                                    Padding(
+                                                                  padding: EdgeInsets
+                                                                      .only(
+                                                                          left: 10
+                                                                              .w),
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .keyboard_arrow_down_outlined,
+                                                                    color: Colors
+                                                                        .black,
+                                                                    size: 26.sp,
+                                                                  ),
+                                                                ),
+                                                                border:
+                                                                    InputBorder
+                                                                        .none,
+                                                                hintStyle: TextStyle(
+                                                                    color: Color(
+                                                                        0xffA1A1A1),
+                                                                    fontSize:
+                                                                        14.sp,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400)),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),*/
+                                          ],
+                                        ),
+                                      ],
+                                    )
+                                  : SizedBox(),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => CouponCodeScreen());
+                },
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: CustomButtonClick(
+                    height: 45.h,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        color: AppColors.primaryColor,
+                        borderRadius: BorderRadius.circular(4.sp)),
+                    child: Center(
+                      child: CustomText(
+                        text: "Create a coupon",
+                        size: 14.sp,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.whitColor,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20.h,
-            )
-          ],
+              SizedBox(
+                height: 20.h,
+              )
+            ],
+          ),
         ),
       ),
     );

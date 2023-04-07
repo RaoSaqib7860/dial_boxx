@@ -42,171 +42,187 @@ class _CouponCodeScreenState extends State<CouponCodeScreen> {
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            HeaderContainer(
-              text: "Discount Coupon",
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: Column(
-                children: [
-                  Container(
-                    height: 230.h,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      color: AppColors.whitColor,
-                      boxShadow: [
-                        BoxShadow(
-                            blurRadius: 2,
-                            spreadRadius: 2,
-                            color: AppColors.blackColor.withOpacity(0.12))
-                      ],
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 10.w, vertical: 10.h),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              HeaderContainer(
+                text: "Discount Coupon",
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Container(
+                      height: 230.h,
+                      // width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: AppColors.whitColor,
+                        boxShadow: [
+                          BoxShadow(
+                              blurRadius: 2,
+                              spreadRadius: 2,
+                              color: AppColors.blackColor.withOpacity(0.12))
+                        ],
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.w, vertical: 10.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/coupon-code.png',
+                                      height: 25.h,
+                                      width: 25.w,
+                                    ),
+                                    SizedBox(
+                                      width: 5.w,
+                                    ),
+                                    CustomText(
+                                      text: "Coupon Code",
+                                      color: Color(0xff707070),
+                                      size: 15.sp,
+                                      fontWeight: FontWeight.bold,
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 34.h,
+                                  child: FlutterSwitch(
+                                    width: 55.0.w,
+                                    height: 30.0.h,
+                                    valueFontSize: 15.0,
+                                    toggleSize: 30.0,
+                                    padding: 0.4,
+                                    activeColor: AppColors.greenColor,
+                                    activeToggleColor: AppColors.whitColor,
+                                    activeText: '',
+                                    activeTextColor: Colors.black54,
+                                    inactiveText: '',
+                                    value: setCouponCodevalue,
+                                    borderRadius: 30.0.sp,
+                                    showOnOff: true,
+                                    onToggle: (val) {
+                                      setState(() {
+                                        setCouponCodevalue = val;
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 25.w),
+                              child: Column(
                                 children: [
-                                  Image.asset(
-                                    'assets/images/coupon-code.png',
-                                    height: 25.h,
-                                    width: 25.w,
+                                  Container(
+                                    height: 48.h,
+                                    //width: 290.w,
+                                    child: CustomText(
+                                      text:
+                                          "Rs.1000 off on all the order above Rs.500",
+                                      size: 15.sp,
+                                      color: Color(0xff707070),
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
                                   SizedBox(
-                                    width: 5.w,
+                                    height: 10.h,
                                   ),
-                                  CustomText(
-                                    text: "Coupon Code",
-                                    color: Color(0xff707070),
-                                    size: 15.sp,
-                                    fontWeight: FontWeight.bold,
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          CustomText(
+                                            text: "Times Used",
+                                            color: Color(0xff707070),
+                                            fontWeight: FontWeight.bold,
+                                            size: 13.sp,
+                                          ),
+                                          CustomText(
+                                            text: "0",
+                                            color: Color(0xff707070),
+                                            fontWeight: FontWeight.bold,
+                                            size: 13.sp,
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          CustomText(
+                                            text: "Total Discount Availed",
+                                            color: Color(0xff707070),
+                                            fontWeight: FontWeight.bold,
+                                            size: 13.sp,
+                                          ),
+                                          CustomText(
+                                            text: "0",
+                                            color: Color(0xff707070),
+                                            fontWeight: FontWeight.bold,
+                                            size: 13.sp,
+                                          ),
+                                        ],
+                                      )
+                                    ],
                                   )
                                 ],
                               ),
-                              Container(
-                                height: 34.h,
-                                child: FlutterSwitch(
-                                  width: 55.0.w,
-                                  height: 30.0.h,
-                                  valueFontSize: 15.0,
-                                  toggleSize: 30.0,
-                                  padding: 0.4,
-                                  activeColor: AppColors.greenColor,
-                                  activeToggleColor: AppColors.whitColor,
-                                  activeText: '',
-                                  activeTextColor: Colors.black54,
-                                  inactiveText: '',
-                                  value: setCouponCodevalue,
-                                  borderRadius: 30.0.sp,
-                                  showOnOff: true,
-                                  onToggle: (val) {
-                                    setState(() {
-                                      setCouponCodevalue = val;
-                                    });
-                                  },
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            Row(
+                              children: List.generate(350~/10, (index) => Expanded(
+                                child: Container(
+                                  color: index%2==0?Colors.transparent
+                                      :Colors.grey,
+                                  height: 1,
+                                ),
+                              )),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            Center(
+                              child: Container(
+                                height: 35.h,
+                                width: 35.w,
+                                child: Image.asset(
+                                  'assets/images/forward.png',
+                                  fit: BoxFit.contain,
                                 ),
                               ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 25.w),
-                            child: Column(
-                              children: [
-                                Container(
-                                  height: 48.h,
-                                  //width: 290.w,
-                                  child: CustomText(
-                                    text:
-                                        "Rs.1000 off on all the order above Rs.500",
-                                    size: 15.sp,
-                                    color: Color(0xff707070),
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        CustomText(
-                                          text: "Times Used",
-                                          color: Color(0xff707070),
-                                          fontWeight: FontWeight.bold,
-                                          size: 13.sp,
-                                        ),
-                                        CustomText(
-                                          text: "0",
-                                          color: Color(0xff707070),
-                                          fontWeight: FontWeight.bold,
-                                          size: 13.sp,
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        CustomText(
-                                          text: "Total Discount Availed",
-                                          color: Color(0xff707070),
-                                          fontWeight: FontWeight.bold,
-                                          size: 13.sp,
-                                        ),
-                                        CustomText(
-                                          text: "0",
-                                          color: Color(0xff707070),
-                                          fontWeight: FontWeight.bold,
-                                          size: 13.sp,
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                          CustomText(
-                            text: "-------------------------------------",
-                          ),
-                          Center(
-                            child: Container(
-                              height: 35.h,
-                              width: 35.w,
-                              child: Image.asset(
-                                'assets/images/forward.png',
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomSheet: Container(
         height: 110.h,
-        width: MediaQuery.of(context).size.width,
+        // width: MediaQuery.of(context).size.width,
         color: Colors.white,
         child: GestureDetector(
           onTap: () {

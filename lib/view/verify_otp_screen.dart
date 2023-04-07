@@ -28,6 +28,7 @@ class VerifyOtpScreen extends StatefulWidget {
 
 class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
   TextEditingController textEditingController = TextEditingController();
+
   // ..text = "123456";
 
   // ignore: close_sinks
@@ -315,7 +316,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                 ),
               ),
             ),
-          ],
+          ),
         ),
       ),
     );

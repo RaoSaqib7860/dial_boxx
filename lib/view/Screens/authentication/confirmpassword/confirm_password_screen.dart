@@ -5,8 +5,8 @@ import 'package:dialbox_seller/view/Screens/authentication/create_account/create
 import 'package:dialbox_seller/view/verify_otp_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ConfirmForgotPasswordScreen extends StatefulWidget {
@@ -23,103 +23,101 @@ class _ConfirmForgotPasswordScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 100.h,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  color: AppColors.whitColor,
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(35.sp),
-                      topLeft: Radius.circular(35.sp))),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 35.w),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 40.0.h,
-                    ),
-                    SizedBox(
+      body: SafeArea(
+        child: SizedBox.expand(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            margin:const EdgeInsets.only(top: 70),
+            decoration: BoxDecoration(
+                color: AppColors.whitColor,
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(35.sp),
+                    topLeft: Radius.circular(35.sp))),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 35.w),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+
+                  Padding(
+                      padding: const EdgeInsets.only(top: 50.0),
+                      child: Image.asset(
+                        'assets/images/logoDialboxx.png',
+                        fit: BoxFit.contain,
                         height: 90.h,
-                        width: 233.w,
-                        child: Image.asset(
-                          'assets/images/logoDialboxx.png',
-                          fit: BoxFit.cover,
-                        )),
-                    SizedBox(
-                      height: 150.h,
-                    ),
-                    CustomText(
-                      text: 'Confirm your Password',
-                      size: 22.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    SizedBox(
-                      height: 44.h,
-                      width: MediaQuery.of(context).size.width,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                            hintText: 'New Password',
-                            hintStyle: TextStyle(fontSize: 15.sp),
-                            contentPadding:
-                                EdgeInsets.only(top: 10.h, left: 10.w),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5.sp))),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    SizedBox(
-                      height: 44.h,
-                      width: MediaQuery.of(context).size.width,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                            hintText: 'Re-enter Password',
-                            hintStyle: TextStyle(fontSize: 15.sp),
-                            contentPadding:
-                                EdgeInsets.only(top: 10.h, left: 10.w),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5.sp))),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30.h,
-                    ),
-                    GestureDetector(
-                      onTap: (() {
-                        Get.to(() => LoginScreen());
-                      }),
-                      child: CustomButtonClick(
-                        height: 40.h,
-                        width: 180.w,
-                        decoration: BoxDecoration(
-                            color: AppColors.primaryColor,
-                            borderRadius: BorderRadius.circular(2.sp)),
-                        child: Center(
+                      )),
+
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 30),
                           child: CustomText(
-                            text: 'Submit',
-                            color: AppColors.whitColor,
-                            size: 16.sp,
-                            fontWeight: FontWeight.w600,
+                            text: 'Confirm your Password',
+                            size: 22.sp,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
                           ),
                         ),
-                      ),
+
+                        SizedBox(
+                          height: 44.h,
+                          width: MediaQuery.of(context).size.width,
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                                hintText: 'New Password',
+                                hintStyle: TextStyle(fontSize: 15.sp),
+                                contentPadding:
+                                    EdgeInsets.only(top: 10.h, left: 10.w),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5.sp))),
+                          ),
+                        ),
+
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          padding: const EdgeInsets.only(bottom: 30,top: 30),
+
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                                hintText: 'Re-enter Password',
+                                hintStyle: TextStyle(fontSize: 15.sp),
+                                contentPadding:
+                                    EdgeInsets.only(top: 10.h, left: 10.w),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(5.sp))),
+                          ),
+                        ),
+
+                        GestureDetector(
+                          onTap: (() {
+                            Get.to(() => LoginScreen());
+                          }),
+                          child: CustomButtonClick(
+                            height: 40.h,
+                            width: 180.w,
+                            decoration: BoxDecoration(
+                                color: AppColors.primaryColor,
+                                borderRadius: BorderRadius.circular(2.sp)),
+                            child: Center(
+                              child: CustomText(
+                                text: 'Submit',
+                                color: AppColors.whitColor,
+                                size: 16.sp,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
+          ),
         ),
       ),
     );

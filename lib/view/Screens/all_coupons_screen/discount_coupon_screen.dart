@@ -39,77 +39,84 @@ class _DiscountCouponScreenState extends State<DiscountCouponScreen> {
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            HeaderContainer(
-              text: "Discount Coupon",
-            ),
-            Container(
-              height: 330.h,
-              width: MediaQuery.of(context).size.width,
-              color: Color(0xffE1E1E1),
-              child: Center(
-                child: Container(
-                    height: 80.h,
-                    width: 100.w,
-                    child: SvgPicture.asset(
-                      'assets/svg/product_imag.svg',
-                      fit: BoxFit.cover,
-                    )),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              HeaderContainer(
+                text: "Discount Coupon",
               ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            CustomText(
-              text: "Get more sales with coupons",
-              size: 16.sp,
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            Container(
-              height: 70.h,
-              width: 270.w,
-              child: CustomText(
-                text:
-                    'Create and share coupons for your store to get more and more order on your store',
-                size: 14.sp,
-                color: Color(0xff797979),
-                fontWeight: FontWeight.w400,
+              Container(
+                height: 330.h,
+                width: MediaQuery.of(context).size.width,
+                color: Color(0xffE1E1E1),
+                child: Center(
+                  child: Container(
+                      height: 80.h,
+                      width: 100.w,
+                      child: SvgPicture.asset(
+                        'assets/svg/product_imag.svg',
+                        fit: BoxFit.cover,
+                      )),
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              CustomText(
+                text: "Get more sales with coupons",
+                size: 16.sp,
+                color: Colors.black,
                 textAlign: TextAlign.center,
+                fontWeight: FontWeight.w600,
               ),
-            ),
-            SizedBox(
-              height: 120.h,
-            ),
-            GestureDetector(
-              onTap: () {
-                showModelBottomSheet();
-              },
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: CustomButtonClick(
-                  height: 45.h,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      color: AppColors.primaryColor,
-                      borderRadius: BorderRadius.circular(4.sp)),
-                  child: Center(
-                    child: CustomText(
-                      text: "Create a coupon",
-                      size: 14.sp,
-                      color: AppColors.whitColor,
-                      fontWeight: FontWeight.bold,
+              SizedBox(
+                height: 10.h,
+              ),
+              Container(
+                height: 70.h,
+                width: MediaQuery.of(context).size.width*0.9,
+                child: CustomText(
+                  text:
+                      'Create and share coupons for your store to get more and more order on your store',
+                  size: 14.sp,
+                  color: const Color(0xff797979),
+                  fontWeight: FontWeight.w400,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              SizedBox(
+                height: 100.h,
+              ),
+              GestureDetector(
+                onTap: () {
+                  showModelBottomSheet();
+                },
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: CustomButtonClick(
+                    height: 45.h,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        color: AppColors.primaryColor,
+                        borderRadius: BorderRadius.circular(4.sp)),
+                    child: Center(
+                      child: CustomText(
+                        text: "Create a coupon",
+                        size: 14.sp,
+                        color: AppColors.whitColor,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
               ),
-            )
-          ],
+              SizedBox(
+                height: 20.h,
+              ),
+            ],
+          ),
         ),
       ),
     );

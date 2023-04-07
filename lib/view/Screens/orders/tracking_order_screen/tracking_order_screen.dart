@@ -35,6 +35,7 @@ class _TrackingOrderScreenState extends State<TrackingOrderScreen> {
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             HeaderContainer(
               text: "Track Order",
@@ -43,49 +44,51 @@ class _TrackingOrderScreenState extends State<TrackingOrderScreen> {
               height: 10.h,
             ),
             Padding(
+              padding: EdgeInsets.only(left: 10.w, bottom: 4.w),
+              child: CustomText(
+                text: "Tracking Order",
+                fontWeight: FontWeight.w500,
+                size: 15.sp,
+                color: AppColors.blackColor,
+              ),
+            ),
+
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomText(
-                    text: "Tracking Order",
-                    fontWeight: FontWeight.w500,
-                    size: 15.sp,
-                    color: AppColors.blackColor,
-                  ),
+
                   Container(
                     //height: 201.h,
-                    width: MediaQuery.of(context).size.width,
+                    // width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       color: AppColors.whitColor,
                       borderRadius: BorderRadius.circular(6.sp),
-                      boxShadow: [
-                        BoxShadow(
-                            blurRadius: 2,
-                            spreadRadius: 1,
-                            color: Colors.black.withOpacity(0.15))
-                      ],
+                      boxShadow: [BoxShadow(blurRadius: 2, spreadRadius: 1, color: Colors.black.withOpacity(0.15))],
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsets.only(left: 10.w, top: 8.h, right: 10.w),
+                      padding: EdgeInsets.only(left: 10.w, top: 8.h, right: 10.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
                             children: [
-                              Container(
-                                width: 140.w,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.4,
                                 child: CustomText(
                                   text: "Tracking ID",
                                   size: 13.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              CustomText(
-                                text: "ID1234567",
-                                size: 13.sp,
-                                fontWeight: FontWeight.w500,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.45,
+                                child: CustomText(
+                                  text: "ID1234567",
+                                  size: 13.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               )
                             ],
                           ),
@@ -95,17 +98,19 @@ class _TrackingOrderScreenState extends State<TrackingOrderScreen> {
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                width: 140.w,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.4,
+
                                 child: CustomText(
                                   text: "Pick up Location",
                                   size: 13.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              Container(
-                                width: 190.w,
-                                height: 45.h,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.45,
+
+                                // height: 45.h,
                                 child: CustomText(
                                   text: "house 1,street3,F-8/I Islamabad",
                                   size: 13.sp,
@@ -120,17 +125,18 @@ class _TrackingOrderScreenState extends State<TrackingOrderScreen> {
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                width: 140.w,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.4,
+
                                 child: CustomText(
                                   text: "Delivery Location",
                                   size: 13.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              Container(
-                                width: 190.w,
-                                height: 50.h,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.45,
+
                                 child: CustomText(
                                   text: "Office 2 zamzam lane 9,DHA,Karachi",
                                   size: 13.sp,
@@ -144,18 +150,23 @@ class _TrackingOrderScreenState extends State<TrackingOrderScreen> {
                           ),
                           Row(
                             children: [
-                              Container(
-                                width: 140.w,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.4,
+
                                 child: CustomText(
                                   text: "Delivery Type",
                                   size: 13.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              CustomText(
-                                text: "Over Night",
-                                size: 13.sp,
-                                fontWeight: FontWeight.w500,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.45,
+
+                                child: CustomText(
+                                  text: "Over Night",
+                                  size: 13.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               )
                             ],
                           ),
@@ -164,18 +175,23 @@ class _TrackingOrderScreenState extends State<TrackingOrderScreen> {
                           ),
                           Row(
                             children: [
-                              Container(
-                                width: 140.w,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.4,
+
                                 child: CustomText(
                                   text: "Weight Charge",
                                   size: 13.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              CustomText(
-                                text: "1Kg",
-                                size: 13.sp,
-                                fontWeight: FontWeight.w500,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.45,
+
+                                child: CustomText(
+                                  text: "1Kg",
+                                  size: 13.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               )
                             ],
                           ),
@@ -184,18 +200,23 @@ class _TrackingOrderScreenState extends State<TrackingOrderScreen> {
                           ),
                           Row(
                             children: [
-                              Container(
-                                width: 140.w,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.4,
+
                                 child: CustomText(
                                   text: "Delivery Charge",
                                   size: 13.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              CustomText(
-                                text: "Rs.250",
-                                size: 13.sp,
-                                fontWeight: FontWeight.w500,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.45,
+
+                                child: CustomText(
+                                  text: "Rs.250",
+                                  size: 13.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               )
                             ],
                           ),
@@ -207,19 +228,24 @@ class _TrackingOrderScreenState extends State<TrackingOrderScreen> {
                           ),
                           Row(
                             children: [
-                              Container(
-                                width: 140.w,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.4,
+
                                 child: CustomText(
                                   text: "Delivery Status",
                                   size: 13.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              CustomText(
-                                text: "Awaiting Pickup",
-                                size: 13.sp,
-                                color: AppColors.secondaryColor,
-                                fontWeight: FontWeight.w500,
+                              Expanded(
+                                // width: MediaQuery.of(context).size.width*0.45,
+
+                                child: CustomText(
+                                  text: "Awaiting Pickup",
+                                  size: 13.sp,
+                                  color: AppColors.secondaryColor,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               )
                             ],
                           ),

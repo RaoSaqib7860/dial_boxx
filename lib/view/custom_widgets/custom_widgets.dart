@@ -48,6 +48,7 @@ class CustomText extends StatelessWidget {
       // ),
       overflow: overflow,
       textAlign: textAlign,
+      softWrap: true,
       maxLines: maxline,
     );
   }
@@ -59,10 +60,13 @@ class CustomButtonClick extends StatelessWidget {
   final Decoration? decoration;
   final String? text;
   final Widget? child;
+  final EdgeInsetsGeometry? margins,paddings;
   const CustomButtonClick({
     Key? key,
     this.height,
     this.width,
+    this.margins,
+    this.paddings,
     this.decoration,
     this.text,
     this.child,
@@ -73,6 +77,8 @@ class CustomButtonClick extends StatelessWidget {
     return Container(
       height: height,
       width: width,
+      margin: margins,
+      padding: paddings,
       decoration: decoration,
       child: child,
     );

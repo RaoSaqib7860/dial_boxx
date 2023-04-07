@@ -46,6 +46,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             HeaderContainer(
               text: "Add Products",
@@ -56,7 +57,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                     padding:
                         EdgeInsets.only(left: 15.w, right: 15.w, top: 15.h),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Row(
                           children: [

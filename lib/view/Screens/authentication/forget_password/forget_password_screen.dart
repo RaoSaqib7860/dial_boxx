@@ -24,65 +24,55 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 100.h,
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  color: AppColors.whitColor,
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(35.sp),
-                      topLeft: Radius.circular(35.sp))),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 35.w),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 40.0.h,
-                    ),
-                    SizedBox(
+      body: SafeArea(
+        child: SizedBox.expand(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            margin:const EdgeInsets.only(top: 70),
+            decoration: BoxDecoration(
+                color: AppColors.whitColor,
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(35.sp),
+                    topLeft: Radius.circular(35.sp))),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 35.w),
+              child: Column(
+                children: [
+                  Padding(
+                      padding:  EdgeInsets.only(top: 30.0,bottom: 70.sp),
+                      child: Image.asset(
+                        'assets/images/logoDialboxx.png',
+                        fit: BoxFit.contain,
                         height: 90.h,
-                        width: 233.w,
-                        child: Image.asset(
-                          'assets/images/logoDialboxx.png',
-                          fit: BoxFit.cover,
-                        )),
-                    SizedBox(
-                      height: 150.h,
+                      )),
+
+                  CustomText(
+                    text: 'Forget Password',
+                    size: 22.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+
+                  Container(
+                    // height: 45.h,
+                    padding:  EdgeInsets.only(top: 12.sp,bottom: 12.sp),
+                    width: MediaQuery.of(context).size.width,
+                    child: CustomText(
+                      text:
+                          "Enter your Email or Number below and we will send you a link to reset your pssword",
+                      textAlign: TextAlign.center,
+                      size: 14.sp,
+                      fontWeight: FontWeight.w400,
                     ),
-                    CustomText(
-                      text: 'Forget Password',
-                      size: 22.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    Container(
-                      height: 45.h,
-                      width: MediaQuery.of(context).size.width,
-                      child: CustomText(
-                        text:
-                            "Enter your Email or Number below and we will send you a link to reset your pssword",
-                        textAlign: TextAlign.center,
-                        size: 14.sp,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    SizedBox(
-                      height: 44.h,
-                      width: MediaQuery.of(context).size.width,
-                      child: TextFormField(
-                        controller: getForgetController.textEditingControllerEmail,
+                  ),
+
+                  Container(
+                    // height: 44.h,
+                    width: MediaQuery.of(context).size.width,
+                    padding:  EdgeInsets.only(top: 20.0,bottom: 16.sp),
+                    child: TextFormField(
+                      controller: getForgetController.textEditingControllerEmail,
                         decoration: InputDecoration(
                             hintText: 'Email or Number',
                             hintStyle: TextStyle(fontSize: 15.sp),
@@ -100,7 +90,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         if(getForgetController.isLoading.value ==false){
                           getForgetController.forgetSendOtp(context: context);
                         }
-                        // Get.to(() => VerifyOtpScreen(
+                      // Get.to(() => VerifyOtpScreen(
                         //       callFromConfirm: 1,
                         //     ));
                       }),
@@ -124,7 +114,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 ),
               ),
             ),
-          ],
+
         ),
       ),
     );

@@ -50,179 +50,183 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            HeaderContainer(
-              text: "Create Order",
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: Column(
-                children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                        color: AppColors.whitColor,
-                        borderRadius: BorderRadius.circular(5.sp),
-                        boxShadow: [
-                          BoxShadow(
-                              blurRadius: 2,
-                              spreadRadius: 1,
-                              color: AppColors.blackColor.withOpacity(0.15))
-                        ]),
-                    child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-                      child: !addProduct
-                          ? Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    CustomText(
-                                      text: "Products",
-                                      size: 15.sp,
-                                      color: AppColors.blackColor,
-                                      fontWeight: FontWeight.w500,
-                                    )
-                                  ],
-                                ),
-                                Divider(
-                                  thickness: 1.5,
-                                ),
-
-                                // addedListviewBuilder(),
-
-                                SizedBox(
-                                  height: 20.h,
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    productModelBottomSheet(() {
-                                      setState(() {});
-                                    }).then((value) => (value) {
-                                          setState(() {});
-                                        });
-                                  },
-                                  child: CustomButtonClick(
-                                    height: 30.h,
-                                    width: 140.w,
-                                    decoration: BoxDecoration(
-                                        color: AppColors.primaryColor),
-                                    child: Center(
-                                      child: CustomText(
-                                        text: "Add Product",
-                                        color: AppColors.whitColor,
-                                        fontWeight: FontWeight.w600,
-                                        size: 13.sp,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 30.h,
-                                )
-                              ],
-                            )
-                          : addedProductListviewBuilder(),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 16.h,
-                  ),
-                  Container(
-                    // height: 130.h,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                        color: AppColors.whitColor,
-                        borderRadius: BorderRadius.circular(5.sp),
-                        boxShadow: [
-                          BoxShadow(
-                              blurRadius: 2,
-                              spreadRadius: 1,
-                              color: AppColors.blackColor.withOpacity(0.15))
-                        ]),
-                    child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-                      child: !addCustomer
-                          ? Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    CustomText(
-                                      text: "Customer Details",
-                                      size: 15.sp,
-                                      color: AppColors.blackColor,
-                                      fontWeight: FontWeight.w500,
-                                    )
-                                  ],
-                                ),
-                                Divider(
-                                  thickness: 1.5,
-                                ),
-                                SizedBox(
-                                  height: !addCustomer ? 30.h : 0.h,
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    customerModelBottomSheet(callBack: () {
-                                      print('object');
-                                      setState(() {});
-                                    });
-                                  },
-                                  child: CustomButtonClick(
-                                    height: 30.h,
-                                    width: 200.w,
-                                    decoration: BoxDecoration(
-                                        color: AppColors.primaryColor),
-                                    child: Center(
-                                      child: CustomText(
-                                        text: "Add Customer Details",
-                                        color: AppColors.whitColor,
-                                        fontWeight: FontWeight.w600,
-                                        size: 13.sp,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: !addCustomer ? 20.h : 0.0,
-                                )
-                              ],
-                            )
-                          : addCustomerData(),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Get.to(() => ConfirmDetailsScreen());
-                    },
-                    child: CustomButtonClick(
-                      height: 45.h,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              HeaderContainer(
+                text: "Create Order",
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch  ,
+                  children: [
+                    Container(
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
+                          color: AppColors.whitColor,
                           borderRadius: BorderRadius.circular(5.sp),
-                          color: AppColors.primaryColor),
-                      child: Center(
-                          child: CustomText(
-                        text: "Create Order",
-                        fontWeight: FontWeight.bold,
-                        size: 16.sp,
-                        color: AppColors.whitColor,
-                      )),
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 2,
+                                spreadRadius: 1,
+                                color: AppColors.blackColor.withOpacity(0.15))
+                          ]),
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                        child: !addProduct
+                            ? Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      CustomText(
+                                        text: "Products",
+                                        size: 15.sp,
+                                        color: AppColors.blackColor,
+                                        fontWeight: FontWeight.w500,
+                                      )
+                                    ],
+                                  ),
+                                  Divider(
+                                    thickness: 1.5,
+                                  ),
+
+                                  // addedListviewBuilder(),
+
+                                  SizedBox(
+                                    height: 20.h,
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      productModelBottomSheet(() {
+                                        setState(() {});
+                                      }).then((value) => (value) {
+                                            setState(() {});
+                                          });
+                                    },
+                                    child: CustomButtonClick(
+                                      height: 30.h,
+                                      width: 140.w,
+                                      decoration: BoxDecoration(
+                                          color: AppColors.primaryColor),
+                                      child: Center(
+                                        child: CustomText(
+                                          text: "Add Product",
+                                          color: AppColors.whitColor,
+                                          fontWeight: FontWeight.w600,
+                                          size: 13.sp,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 30.h,
+                                  )
+                                ],
+                              )
+                            : addedProductListviewBuilder(),
+                      ),
                     ),
-                  )
-                ],
-              ),
-            )
-          ],
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    Container(
+                      // height: 130.h,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          color: AppColors.whitColor,
+                          borderRadius: BorderRadius.circular(5.sp),
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 2,
+                                spreadRadius: 1,
+                                color: AppColors.blackColor.withOpacity(0.15))
+                          ]),
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                        child: !addCustomer
+                            ? Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      CustomText(
+                                        text: "Customer Details",
+                                        size: 15.sp,
+                                        color: AppColors.blackColor,
+                                        fontWeight: FontWeight.w500,
+                                      )
+                                    ],
+                                  ),
+                                  Divider(
+                                    thickness: 1.5,
+                                  ),
+                                  SizedBox(
+                                    height: !addCustomer ? 30.h : 0.h,
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      customerModelBottomSheet(callBack: () {
+                                        print('object');
+                                        setState(() {});
+                                      });
+                                    },
+                                    child: CustomButtonClick(
+                                      height: 30.h,
+                                      width: 200.w,
+                                      decoration: BoxDecoration(
+                                          color: AppColors.primaryColor),
+                                      child: Center(
+                                        child: CustomText(
+                                          text: "Add Customer Details",
+                                          color: AppColors.whitColor,
+                                          fontWeight: FontWeight.w600,
+                                          size: 13.sp,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: !addCustomer ? 20.h : 0.0,
+                                  )
+                                ],
+                              )
+                            : addCustomerData(),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(() => ConfirmDetailsScreen());
+                      },
+                      child: CustomButtonClick(
+                        height: 45.h,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.sp),
+                            color: AppColors.primaryColor),
+                        child: Center(
+                            child: CustomText(
+                          text: "Create Order",
+                          fontWeight: FontWeight.bold,
+                          size: 16.sp,
+                          color: AppColors.whitColor,
+                        )),
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -606,6 +610,7 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
 //.....................Added the product Listview.builder is getting........//
   Widget addedProductListviewBuilder() {
     return Column(
+
       children: [
         Row(
           children: [
@@ -634,8 +639,8 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                     Expanded(
                       child: Container(
                         height: 80.h,
-                        width: 200.w,
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -659,83 +664,87 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
                                 SizedBox(
                                   width: 10.w,
                                 ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    CustomText(
-                                      text: "1 Item",
-                                      color: Color(0xff3E3E3E),
-                                      size: 14.sp,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    SizedBox(
-                                      height: 2.h,
-                                    ),
-                                    CustomText(
-                                      text: "RS.200",
-                                      color: AppColors.primaryColor,
-                                      fontWeight: FontWeight.w600,
-                                      size: 15.sp,
-                                    ),
-                                    SizedBox(
-                                      height: 2.h,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          height: 25.h,
-                                          width: 200.w,
-                                          child: Row(
-                                            children: [
-                                              Container(
-                                                height: 25.h,
-                                                width: 70.w,
-                                                decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                        color: AppColors
-                                                            .primaryColor)),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceAround,
-                                                  children: [
-                                                    Icon(
-                                                      Icons.remove,
-                                                      size: 18.sp,
-                                                    ),
-                                                    CustomText(
-                                                      text: "1",
-                                                    ),
-                                                    Icon(
-                                                      Icons.add,
-                                                      size: 18.sp,
-                                                    ),
-                                                  ],
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width*0.9,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      CustomText(
+                                        text: "1 Item",
+                                        color: Color(0xff3E3E3E),
+                                        size: 14.sp,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      SizedBox(
+                                        height: 2.h,
+                                      ),
+                                      CustomText(
+                                        text: "RS.200",
+                                        color: AppColors.primaryColor,
+                                        fontWeight: FontWeight.w600,
+                                        size: 15.sp,
+                                      ),
+                                      SizedBox(
+                                        height: 2.h,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            height: 25.h,
+                                            // width: 200.w,
+                                            child: Row(
+                                              children: [
+                                                Container(
+                                                  height: 25.h,
+                                                  // width: 70.w,
+                                                  decoration: BoxDecoration(
+                                                      border: Border.all(
+                                                          color: AppColors
+                                                              .primaryColor)),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      Icon(
+                                                        Icons.remove,
+                                                        size: 18.sp,
+                                                      ),
+                                                      CustomText(
+                                                        text: "1",
+                                                      ),
+                                                      Icon(
+                                                        Icons.add,
+                                                        size: 18.sp,
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
-                                              ),
-                                              CustomText(
-                                                text: " X",
-                                              ),
-                                              CustomText(
-                                                text: " RS.200",
-                                                color: AppColors.primaryColor,
-                                                fontWeight: FontWeight.w600,
-                                                size: 15.sp,
-                                              )
-                                            ],
+                                                CustomText(
+                                                  text: " X",
+                                                ),
+                                                CustomText(
+                                                  text: " RS.200",
+                                                  color: AppColors.primaryColor,
+                                                  fontWeight: FontWeight.w600,
+                                                  size: 15.sp,
+                                                )
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                        CustomText(
-                                          text: "RS.200",
-                                          color: AppColors.primaryColor,
-                                          fontWeight: FontWeight.w600,
-                                          size: 15.sp,
-                                        )
-                                      ],
-                                    )
-                                  ],
+                                          CustomText(
+                                            text: "RS.200",
+                                            color: AppColors.primaryColor,
+                                            fontWeight: FontWeight.w600,
+                                            size: 15.sp,
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),

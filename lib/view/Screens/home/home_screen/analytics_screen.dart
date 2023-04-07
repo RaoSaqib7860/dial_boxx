@@ -79,64 +79,62 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              color: AppColors.primaryColor,
-              child: Column(
-                children: [
-                  Container(
-                    height: 60.h,
-                    child: Center(
-                      child: CustomText(
-                        text: "ANALYTICS",
-                        size: 17.sp,
-                        color: AppColors.whitColor,
-                        fontWeight: FontWeight.bold,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                color: AppColors.primaryColor,
+                child: Column(
+                  children: [
+                    Container(
+                      height: 60.h,
+                      child: Center(
+                        child: CustomText(
+                          text: "ANALYTICS",
+                          size: 17.sp,
+                          color: AppColors.whitColor,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                  TabBar(
-                    controller: _tabController,
-                    indicatorColor: Colors.white,
-                    tabs: <Widget>[
-                      CustomText(
-                        text: "Sales",
-                        size: 15.sp,
-                      ),
-                      CustomText(
-                        text: "Traffic",
-                        size: 15.sp,
-                      ),
-                      CustomText(
-                        text: "Products",
-                        size: 15.sp,
-                      ),
-                    ],
-                    indicatorSize: TabBarIndicatorSize.tab,
-                  ),
-                ],
+                    TabBar(
+                      controller: _tabController,
+                      indicatorColor: Colors.white,
+                      tabs: <Widget>[
+                        CustomText(
+                          text: "Sales",
+                          size: 15.sp,
+                        ),
+                        CustomText(
+                          text: "Traffic",
+                          size: 15.sp,
+                        ),
+                        CustomText(
+                          text: "Products",
+                          size: 15.sp,
+                        ),
+                      ],
+                      indicatorSize: TabBarIndicatorSize.tab,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height,
-              child: TabBarView(
-                controller: _tabController,
-                children: <Widget>[
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      salesWidget(),
-                    ],
-                  ),
-                  //.............Categories Tab..........................//
-                  trafficWidget(),
-                  productWidget(),
-                ],
+              Container(
+                height: MediaQuery.of(context).size.height,
+                child: TabBarView(
+                  controller: _tabController,
+                  children: <Widget>[
+                    salesWidget(),
+                    //.............Categories Tab..........................//
+                    trafficWidget(),
+                    productWidget(),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -989,7 +987,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
 
   Widget salesWidget() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SizedBox(
           height: 10.h,
@@ -1042,15 +1040,16 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
           height: 15.h,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.w),
+          padding: EdgeInsets.symmetric(horizontal: 12.w),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    height: 100.h,
-                    width: 162.w,
+                    height: 80.h,
+                    width: MediaQuery.of(context).size.width*0.45,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       boxShadow: [
@@ -1101,9 +1100,11 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                       ),
                     ),
                   ),
+                  SizedBox(width: 8.w,),
+
                   Container(
-                    height: 100.h,
-                    width: 162.w,
+                    height: 80.h,
+                    width: MediaQuery.of(context).size.width*0.45,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       boxShadow: [
@@ -1160,11 +1161,12 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                 height: 15.h,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    height: 100.h,
-                    width: 162.w,
+                    height: 80.h,
+                    width: MediaQuery.of(context).size.width*0.45,
+
                     decoration: BoxDecoration(
                       color: Colors.white,
                       boxShadow: [
@@ -1215,9 +1217,12 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                       ),
                     ),
                   ),
+                  SizedBox(width: 8.w,),
+
                   Container(
-                    height: 100.h,
-                    width: 162.w,
+                    height: 80.h,
+                    width: MediaQuery.of(context).size.width*0.45,
+
                     decoration: BoxDecoration(
                       color: Colors.white,
                       boxShadow: [
@@ -1275,14 +1280,14 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        height: 214.h,
-                        width: 162.w,
+                        height: 200.h,
+                        width: MediaQuery.of(context).size.width*0.45,
                         decoration: BoxDecoration(
                             color: AppColors.whitColor,
                             borderRadius: BorderRadius.circular(0.sp),
@@ -1329,14 +1334,14 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                                     // title: ChartTitle(text: 'Half yearly sales analysis'),
                                     // Enable legend
                                     legend: Legend(
-                                      isVisible: true,
+                                      isVisible: false,
                                       padding: 0.0,
                                     ),
                                     // Enable tooltip
                                     tooltipBehavior:
                                         TooltipBehavior(enable: true),
                                     series: <ChartSeries<_SalesData, String>>[
-                                      LineSeries<_SalesData, String>(
+                                      ColumnSeries<_SalesData, String>(
                                           dataSource: data,
                                           xValueMapper: (_SalesData sales, _) =>
                                               sales.year,
@@ -1353,9 +1358,12 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                           ),
                         ),
                       ),
+                      SizedBox(width: 8.w,),
+
                       Container(
                         color: AppColors.primaryColor,
-                        width: 164.w,
+                        width: MediaQuery.of(context).size.width*0.45,
+
                         height: 22,
                         child: Center(
                           child: CustomText(
@@ -1372,8 +1380,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        height: 214.h,
-                        width: 162.w,
+                        height: 200.h,
+                        width:MediaQuery.of(context).size.width*0.45,
                         decoration: BoxDecoration(
                             color: AppColors.whitColor,
                             borderRadius: BorderRadius.circular(0.sp),
@@ -1420,14 +1428,14 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                                     // title: ChartTitle(text: 'Half yearly sales analysis'),
                                     // Enable legend
                                     legend: Legend(
-                                      isVisible: true,
+                                      isVisible: false,
                                       padding: 0.0,
                                     ),
                                     // Enable tooltip
                                     tooltipBehavior:
                                         TooltipBehavior(enable: true),
                                     series: <ChartSeries<_SalesData, String>>[
-                                      LineSeries<_SalesData, String>(
+                                      ColumnSeries<_SalesData, String>(
                                           dataSource: data,
                                           xValueMapper: (_SalesData sales, _) =>
                                               sales.year,
@@ -1444,9 +1452,11 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                           ),
                         ),
                       ),
+                      SizedBox(width: 8.w,),
                       Container(
                         color: AppColors.primaryColor,
-                        width: 164.w,
+                        width: MediaQuery.of(context).size.width*0.45,
+
                         height: 22,
                         child: Center(
                           child: CustomText(
@@ -1465,11 +1475,12 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                 height: 15.h,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
                     height: 140.h,
-                    width: 162.w,
+                    width: MediaQuery.of(context).size.width*0.45,
+
                     decoration: BoxDecoration(
                         color: AppColors.whitColor,
                         borderRadius: BorderRadius.circular(0.sp),
@@ -1553,9 +1564,12 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                       ),
                     ),
                   ),
+                  SizedBox(width: 8.w,),
+
                   Container(
                     height: 140.h,
-                    width: 162.w,
+                    width: MediaQuery.of(context).size.width*0.45,
+
                     decoration: BoxDecoration(
                         color: AppColors.whitColor,
                         borderRadius: BorderRadius.circular(0.sp),
@@ -1645,13 +1659,14 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.w),
+          padding: EdgeInsets.symmetric(horizontal: 12.w),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
                 height: 25.h,
-                width: 162.w,
+                width: MediaQuery.of(context).size.width*0.45,
+
                 color: AppColors.primaryColor,
                 child: Center(
                   child: CustomText(
@@ -1662,9 +1677,11 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                   ),
                 ),
               ),
+              SizedBox(width: 8.w,),
               Container(
                 height: 25.h,
-                width: 162.w,
+                width: MediaQuery.of(context).size.width*0.45,
+
                 color: AppColors.primaryColor,
                 child: Center(
                   child: CustomText(

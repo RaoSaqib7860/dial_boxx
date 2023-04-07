@@ -47,6 +47,8 @@ dependencies:
   syncfusion_flutter_charts: ^20.3.58
   get:
   google_fonts: ^3.0.1
+  http: ^0.13.5
+  get_storage: ^2.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

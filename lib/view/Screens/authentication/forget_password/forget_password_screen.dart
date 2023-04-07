@@ -1,12 +1,15 @@
 import 'package:dialbox_seller/services/colors/app_colors.dart';
 import 'package:dialbox_seller/view/custom_widgets/custom_widgets.dart';
-import 'package:dialbox_seller/view/Screens/create_account_screen.dart';
+import 'package:dialbox_seller/view/Screens/authentication/create_account/create_account_screen.dart';
 import 'package:dialbox_seller/view/verify_otp_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+
+import '../create_account/create_accout_controller/create_controoler.dart';
+import 'forget_controller.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -16,6 +19,7 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+  var getForgetController = Get.put(forgetotpController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,6 +82,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       height: 44.h,
                       width: MediaQuery.of(context).size.width,
                       child: TextFormField(
+                        controller: getForgetController.textEditingControllerEmail,
                         decoration: InputDecoration(
                             hintText: 'Email or Number',
                             hintStyle: TextStyle(fontSize: 15.sp),
@@ -92,9 +97,12 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     ),
                     GestureDetector(
                       onTap: (() {
-                        Get.to(() => VerifyOtpScreen(
-                              callFromConfirm: 1,
-                            ));
+                        if(getForgetController.isLoading.value ==false){
+                          getForgetController.forgetSendOtp(context: context);
+                        }
+                        // Get.to(() => VerifyOtpScreen(
+                        //       callFromConfirm: 1,
+                        //     ));
                       }),
                       child: CustomButtonClick(
                         height: 40.h,

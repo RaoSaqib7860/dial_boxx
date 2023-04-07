@@ -9,6 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../all_coupons_screen/discount_coupon_screen.dart';
+import '../manage website/offer_and_ads_screen.dart';
 
 class AddProductScreen extends StatefulWidget {
   const AddProductScreen({super.key});
@@ -23,6 +24,9 @@ class _AddProductScreenState extends State<AddProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        Get.to(OfferAddScreen());
+      }),
       appBar: CustomAppBar(
         leading: BackButton(color: AppColors.primaryColor),
         actions: [
